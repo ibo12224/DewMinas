@@ -12,7 +12,7 @@
 3. url 복사하여 clone 수행하기.
 4. 원본 리포지토리(** fork된 것 X임에 주의 **) url을 remote로 추가하기.
 ```
-# git remote add real-dewminas 리포지토리url
+# git remote add 별명 리포지토리url
 # git remote -v
 ```
 
@@ -39,3 +39,13 @@
 5. fork했던 github 페이지를 브라우저로 연다.
 6. 활성화 되어 있는 pull request 버튼을 클릭한다.
 7. 만약 conflics가 있다는 경고가 생기면, 해당 파일 내용들을 수정하여 conflic가 생기지 않도록 수정한 뒤 다시 시도한다.
+8. 원본 저장소 소유자가 pull request를 승인하고 merge한다.
+9. merge 됐다는 응답을 받으면, branch를 삭제한다.
+```
+# git checkout 디폴트브랜치이름
+# git branch -D 만들었던브랜치이름
+```
+10. 원본 리포지토리를 pull 한다.
+```
+# git pull 원본리포지토리별명 현재브랜치이름
+```
