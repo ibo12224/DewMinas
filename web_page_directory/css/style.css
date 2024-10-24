@@ -1,0 +1,2160 @@
+
+/*
+메인 공통적 인풋
+기본 프레임
+
+
+*/
+
+.potopolio-input-page {
+  background-color: #e8ecef;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  padding: 50px;
+}
+.potopolio-input-page .div {
+  background-color: #e8ecef;
+  display: flex;
+  flex-direction: row;
+  width: 1420px;
+  height: auto;
+  top: 0px;
+  position: relative;
+  padding: 10px;
+}
+
+.potopolio-input-page .form {
+  position: relative;
+  display: flex;
+  flex-direction: column; /* 세로로 배치 */
+  width: 1001px;
+  height: auto; /* 내부 요소 크기에 따라 높이 자동 조절 */
+
+  gap: 20px; /* 내부 요소 사이에 20px 간격 */
+}
+.heading{
+  position: relative;
+  width: 940px;
+  height: 40px;
+
+}
+.heading-2 {
+  position: absolute;
+  width: 101px;
+  height: 30px;
+  top: 0px;
+  left: 1px;
+  font-weight: 800;
+
+  
+}
+.essential{
+  position: absolute;
+  width: 140px;
+  height: 30px;
+  top: 14px;
+  right: 0px;
+  display: flex;
+  flex-direction: row; /* 세로로 배치 */
+}
+.essential .s2 {
+  color: #999999;
+  font-size: 13px;
+}
+
+.essential .s1 {
+  color: #ff3333;
+  font-size: 13px;
+}
+
+.potopolio-input-page .maincontainer {
+  position: relative;
+  display:flex;
+  flex-direction: column; /* 세로로 배치 */
+  width: 940px;
+  height: auto;
+  display:flex;
+}
+.potopolio-input-page .mainframe {
+  position: relative;
+  width: 940px;
+  height: auto;
+
+  background-color: #ffffff;
+  border-top: 1px solid;
+  border-color: #eeeeee;
+}
+.potopolio-input-page .subframe {
+  position: relative;
+  width: 940px;
+  height: auto;
+  padding-top: 10px; /* 위쪽 여백 */
+  padding-bottom: 10px; /* 아래쪽 여백 */
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-bottom: 0.5px solid;
+  border-color: #eeeeee;
+}
+
+
+.potopolio-input-page .contentframe {
+  position: relative;
+  width: 940px;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 10px 48px 10px 19px;
+  position: relative;
+  background-color: #ffffff;
+  
+  border-color: #eeeeee;
+}
+
+
+
+.potopolio-input-page .plusbutton {
+  all: unset;
+  box-sizing: border-box;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  height: 50px;
+  top: -1px;
+  border-top: 0.5px solid;
+  border-color: #eeeeee;
+  z-index: 0;
+  background-color: white;
+}
+
+ .potopolio-input-page .container {
+  position: sticky;
+  top: 40px; /* top에 px 단위를 추가 */
+  left: 1400px; /* left에도 px 단위를 추가 */
+  width: 240px;
+  height: 518px;
+  background-color: white;
+  } 
+
+  .potopolio-input-page .text_area {
+    font-weight: 400;
+    color: #000000;  /* 기본 폰트 색상 검정 */
+    font-size: 15px;
+    text-align: left;
+    line-height: 18px;
+    position: absolute;
+    top:20px;
+    left: 10px;
+    width: 95%;  /* 고정 너비 */
+    height: 35px; /* 고정 높이 */
+    margin-top: 0px;
+    font-family: "Roboto", Helvetica;
+    letter-spacing: 0;
+    white-space: nowrap;
+    resize: none;  /* 크기 조절 불가 */
+    overflow: hidden; /* 스크롤 비활성화 (내용이 넘칠 경우) */
+    border: none; /* 테두리 제거 */
+    outline: none; /* 클릭 시 테두리 보이지 않게 설정 */
+    background-color: transparent; /* 배경 투명하게 설정 */
+    caret-color: #000000; /* 커서 색상을 검정으로 설정 */
+  }
+  input::placeholder {
+    color: #a8a8a8;;  /* 기본 안내 텍스트는 회색 */
+    font-weight: 400; /* 안내 텍스트는 얇게 */
+    opacity: 0.5;
+  }
+
+  .potopolio-input-page .text_area_1 {
+    font-weight: 400;
+    color: #000000;  /* 기본 폰트 색상 검정 */
+    font-size: 15px;
+    text-align: left;
+    line-height: 18px;
+    position: absolute;
+    top: 25px;
+    left: 10px;
+    width: 95%;/* 너비는 위치를 고려해 조정 */
+    height: 80%; /* 최대 높이: position 값에서 뺀 높이 기준 - 5px */
+    margin-top: 0px;
+    font-family: "Roboto", Helvetica;
+    letter-spacing: 0;
+    resize: none;  /* 크기 조절 불가 */
+    overflow-y: auto; /* 세로 스크롤 자동 활성화 (넘칠 경우만) */
+    border: none; /* 테두리 제거 */
+    outline: none; /* 클릭 시 테두리 보이지 않게 설정 */
+    background-color: transparent; /* 배경 투명하게 설정 */
+    caret-color: #000000; /* 커서 색상을 검정으로 설정 */
+    white-space: pre-wrap; /* 줄바꿈 지원 */
+    word-wrap: break-word; /* 단어가 넘칠 경우 자동 줄바꿈 */
+    padding-bottom: 10px; /* 오른쪽 여백 */
+  }
+  textarea::placeholder {
+    color: #a8a8a8;;  /* 기본 안내 텍스트는 회색 */
+    font-weight: 400; /* 안내 텍스트는 얇게 */
+    opacity: 0.5;
+  }
+
+
+
+.potopolio-input-page .background-border {
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  height: 51px;
+  align-items: center;
+  padding: 1px 94.08px 0px 94.06px;
+  position: absolute;
+  top: 403px;
+  left: 0;
+  background-color: #ffffff;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-color: #eeeeee;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.potopolio-input-page .button {
+  all: unset;
+  box-sizing: border-box;
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  margin-left: -0.07px;
+  margin-right: -0.07px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: #333333;
+  font-size: 14.1px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 50px;
+  white-space: nowrap;
+}
+
+.potopolio-input-page .div-wrapper {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  height: 52px;
+  align-items: center;
+  padding: 0px 85.44px 0px 85.42px;
+  position: absolute;
+  top: 466px;
+  left: 0;
+  background-color: #002aff;
+}
+
+.potopolio-input-page .text-wrapper {
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 15px;
+  text-align: center;
+  line-height: 52px;
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Roboto", Helvetica;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+
+
+
+
+
+.potopolio-input-page .background-border-2 {
+  display: flex;
+  flex-direction: column;
+  max-width: 1536px;
+  width: 240px;
+  align-items: flex-start;
+  gap: 11.5px;
+  padding: 16.5px 15px 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #eeeeee;
+}
+
+
+.potopolio-input-page .list {
+  display: flex;
+  flex-direction: column;
+  width: 210px;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 16px 0px 20px;
+  position: relative;
+  flex: 0 0 auto;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: #eeeeee;
+}
+
+.potopolio-input-page .item-link {
+  display: flex;
+  flex-direction: column;
+  height: 25px;
+  align-items: flex-start;
+  padding: 1.5px 0px 2.5px 34px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+}
+
+.potopolio-input-page .text-wrapper-2 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: #002aff;
+  font-size: 13.1px;
+  letter-spacing: 0;
+  line-height: 21px;
+  white-space: nowrap;
+}
+
+.potopolio-input-page .image {
+  position: absolute;
+  width: 22px;
+  height: 17px;
+  top: 3px;
+  left: 1px;
+  opacity: 0.5;
+}
+.potopolio-input-page .text-wrapper-3{
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: #002aff;
+  font-size: 13.2px;
+  letter-spacing: 0;
+  line-height: 21px;
+  white-space: nowrap;
+  opacity: 0.5;
+}
+.activate .text-wrapper-3 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: #002aff;
+  font-size: 13.2px;
+  letter-spacing: 0;
+  line-height: 21px;
+  white-space: nowrap;
+  opacity: 1;
+}
+
+
+.potopolio-input-page .img {
+  position: absolute;
+  width: 23px;
+  height: 22px;
+  top: 3px;
+  left: 1px;
+}
+
+.potopolio-input-page .div-2 {
+  all: unset;
+
+
+  position: relative;
+  width: 210px;
+  height: 25px;
+}
+
+.potopolio-input-page .link {
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+  height: 25px;
+  align-items: flex-start;
+  padding: 1.5px 0px 2.5px 34px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.potopolio-input-page .rectangle-wrapper {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 0;
+  left: 185px;
+  background-color: #ffffff;
+  border-radius: 100px;
+  overflow: hidden;
+  border: 1px solid;
+  opacity: 0.5;
+  border-color: #002aff;
+}
+
+.potopolio-input-page .rectangle {
+  position: absolute;
+  width: 17px;
+  height: 3px;
+  top: 10px;
+  left: 3px;
+  opacity: 0.7;
+  background-color:#002aff;
+}
+.potopolio-input-page .rectangle1 {
+  position: absolute;
+  width: 3px;
+  height: 17px;
+  top: 3px;
+  left: 10px;
+  opacity: 0.7;
+  background-color:#002aff;
+}
+.activate .rectangle-wrapper {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 0;
+  left: 185px;
+  background-color: #ffffff;
+  border-radius: 100px;
+  overflow: hidden;
+  border: 1px solid;
+  border-color: #4664fa;
+  opacity: 1;
+}
+
+.activate .rectangle {
+  position: absolute;
+  width: 17px;
+  height: 3px;
+  top: 10px;
+  left: 3px;
+  background-color: #0931fe;
+  opacity: 1;
+}
+.activate .rectangle1 {
+  position: absolute;
+  width: 3px;
+  height: 17px;
+  top: 0px;
+  left: 10px;
+  opacity: 0;
+  background-color: #fcfcfc;
+
+}
+
+
+.activate .image {
+  position: absolute;
+  width: 22px;
+  height: 17px;
+  top: 3px;
+  left: 1px;
+  opacity: 1;
+}
+
+
+/*                                        //////////////////////c_+-*/
+
+.potopolio-input-page .image-2 {
+  position: absolute;
+  width: 22px;
+  height: 18px;
+  top: 3px;
+  left: 1px;
+}
+
+.potopolio-input-page .trophy {
+  position: absolute;
+  width: 24px;
+  height: 22px;
+  top: 2px;
+  left: 0;
+}
+
+.potopolio-input-page .carrear-botton {
+  display: flex;
+  flex-direction: column;
+  width: 210px;
+  height: 25px;
+  align-items: flex-start;
+  position: relative;
+}
+
+.potopolio-input-page .frame {
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  height: 25px;
+}
+
+.potopolio-input-page .link-2 {
+  display: flex;
+  flex-direction: column;
+  width: 210px;
+  height: 25px;
+  align-items: flex-start;
+  padding: 1.5px 0px 2.5px 34px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.potopolio-input-page .image-3 {
+  position: absolute;
+  width: 23px;
+  height: 22px;
+  top: 0;
+  left: 0;
+}
+
+.potopolio-input-page .text-wrapper-4 {
+  color: #535353;
+}
+
+.potopolio-input-page .skill {
+  position: relative;
+  width: 940px;
+  height: auto;
+}
+
+
+
+.skill .skill_boader {
+  display: flex;
+  flex-direction: column;
+  width: 940px;
+  align-items: flex-start;
+  padding: 1px;
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: var(--wwwjobkoreacokrmystic);
+}
+
+.potopolio-input-page .container-2 {
+  display: flex;
+  max-width: 1536px;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 20px 48px 20px 19px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+  z-index: 1;
+}
+
+.potopolio-input-page .background-border-4 {
+  position: relative;
+  width: 104px;
+  height: 60px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.potopolio-input-page .image-4 {
+  position: absolute;
+  width: 18px;
+  height: 17px;
+  top: 23px;
+  left: 75px;
+}
+
+.potopolio-input-page .label {
+  display: flex;
+  flex-direction: column;
+  width: 16px;
+  align-items: flex-start;
+  justify-content: center;
+  position: absolute;
+  top: 20px;
+  left: 4px;
+}
+
+.potopolio-input-page .p {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  margin-right: -40.62px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 15.4px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.potopolio-input-page .span {
+  color: #999999;
+}
+
+.potopolio-input-page .text-wrapper-5 {
+  color: #ff3333;
+}
+
+.potopolio-input-page .label-wrapper {
+  position: relative;
+  width: 85px;
+  height: 60px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.potopolio-input-page .label-2 {
+  position: absolute;
+  width: 42px;
+  height: 24px;
+  top: 19px;
+  left: 16px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: var(--wwwjobkoreacokrdusty-gray);
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.potopolio-input-page .background-border-5 {
+  display: flex;
+  width: 662px;
+  height: 60px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1px;
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.potopolio-input-page .input {
+  display: flex;
+  flex-direction: column;
+  height: 60px;
+  align-items: flex-start;
+  padding: 20.5px 15px;
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+}
+
+.potopolio-input-page .container-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.potopolio-input-page .text-wrapper-6 {
+  position: relative;
+  align-self: stretch;
+  margin-top: -1px;
+  color: #ffffff;
+  font-size: 14.2px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.potopolio-input-page .image-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 35px;
+  height: 35px;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  left: 903px;
+}
+
+.potopolio-input-page .image-5 {
+  position: relative;
+  width: 35px;
+  height: 35px;
+}
+
+
+
+.potopolio-input-page .image-6 {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 16px;
+  left: 419px;
+}
+
+.potopolio-input-page .text-wrapper-7 {
+  position: absolute;
+  width: 73px;
+  height: 48px;
+  top: 0;
+  left: 445px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: #666666;
+  font-size: 15.1px;
+  letter-spacing: 0;
+  line-height: 48px;
+  white-space: nowrap;
+}
+
+.potopolio-input-page .career {
+  position: relative;
+  width: 940px;
+  height: 351px;
+
+}
+
+.potopolio-input-page .container-wrapper {
+  position: absolute;
+  width: 940px;
+  height: 310px;
+  top: 41px;
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: var(--wwwjobkoreacokrmystic);
+}
+
+.potopolio-input-page .container-4 {
+  position: relative;
+  width: 938px;
+  height: 308px;
+  border-bottom: 1px solid;
+  border-color: #eeeeee;
+}
+
+.potopolio-input-page .border {
+  display: flex;
+  width: 898px;
+  height: 135px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 29px 1px 1px 2px;
+  top: 164px;
+  left: 20px;
+  position: absolute;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.potopolio-input-page .textarea {
+  max-height: 500px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1px 16px;
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+  background-color: #ffffff;
+  overflow: scroll;
+  border: 1px solid;
+}
+
+.potopolio-input-page .text-wrapper-8 {
+  position: relative;
+  align-self: stretch;
+  font-family: var(--www-jobkorea-co-kr-semantic-textarea-font-family);
+  font-weight: var(--www-jobkorea-co-kr-semantic-textarea-font-weight);
+  color: var(--wwwjobkoreacokrdusty-gray);
+  font-size: var(--www-jobkorea-co-kr-semantic-textarea-font-size);
+  letter-spacing: var(--www-jobkorea-co-kr-semantic-textarea-letter-spacing);
+  line-height: var(--www-jobkorea-co-kr-semantic-textarea-line-height);
+  font-style: var(--www-jobkorea-co-kr-semantic-textarea-font-style);
+}
+
+.potopolio-input-page .label-3 {
+  position: absolute;
+  width: 38px;
+  height: 16px;
+  top: 9px;
+  left: 16px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: var(--wwwjobkoreacokrdusty-gray);
+  font-size: 10.3px;
+  letter-spacing: 0;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.potopolio-input-page .overlap {
+  position: absolute;
+  width: 555px;
+  height: 62px;
+  top: 92px;
+  left: 20px;
+}
+
+.potopolio-input-page .button-3 {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 278px;
+  height: 62px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.potopolio-input-page .container-5 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 21px 15px 0px;
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.potopolio-input-page .text-wrapper-9 {
+  position: relative;
+  align-self: stretch;
+  margin-top: -1px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: #a8a8a8;
+  font-size: 13.9px;
+  letter-spacing: 0;
+  line-height: 22.5px;
+}
+
+.potopolio-input-page .image-7 {
+  position: absolute;
+  width: 11px;
+  height: 6px;
+  top: 28px;
+  left: 257px;
+}
+
+.potopolio-input-page .background-border-6 {
+  position: absolute;
+  width: 278px;
+  height: 62px;
+  top: 0;
+  left: 277px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.potopolio-input-page .button-4 {
+  all: unset;
+  box-sizing: border-box;
+  position: absolute;
+  width: 42px;
+  height: 18px;
+  top: 22px;
+  left: 226px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: #002aff;
+  font-size: 11.2px;
+  letter-spacing: 0;
+  line-height: 18px;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+.potopolio-input-page .label-4 {
+  display: flex;
+  flex-direction: column;
+  width: 46px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0px 0px 0.75px;
+  position: absolute;
+  top: 9px;
+  left: 16px;
+}
+
+.potopolio-input-page .div-3 {
+  width: 27px;
+  height: 13px;
+  top: 5px;
+  left: 12px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 11px;
+  letter-spacing: 0;
+  line-height: 16.5px;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.potopolio-input-page .text-wrapper-10 {
+  color: #a8a8a8;
+}
+
+.potopolio-input-page .background-border-7 {
+  position: absolute;
+  width: 115px;
+  height: 62px;
+  top: 92px;
+  left: 585px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.potopolio-input-page .label-5 {
+  position: absolute;
+  width: 28px;
+  height: 24px;
+  top: 19px;
+  left: 16px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: var(--wwwjobkoreacokrdusty-gray);
+  font-size: 15.1px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.potopolio-input-page .overlap-group {
+  position: absolute;
+  width: 555px;
+  height: 62px;
+  top: 20px;
+  left: 20px;
+}
+
+.potopolio-input-page .background-border-8 {
+  position: absolute;
+  width: 278px;
+  height: 62px;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.potopolio-input-page .label-6 {
+  display: flex;
+  flex-direction: column;
+  width: 53px;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  top: 20px;
+  left: 16px;
+}
+
+.potopolio-input-page .div-4 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 15.4px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.potopolio-input-page .overlap-group-2 {
+  position: absolute;
+  width: 229px;
+  height: 62px;
+  top: 20px;
+  left: 585px;
+}
+
+.potopolio-input-page .background-border-9 {
+  display: flex;
+  width: 115px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.potopolio-input-page .text-wrapper-11 {
+  position: relative;
+  align-self: stretch;
+  margin-top: -1px;
+  color: #ffffff;
+  font-size: 16px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.potopolio-input-page .label-7 {
+  display: flex;
+  flex-direction: column;
+  width: 67px;
+  align-items: flex-start;
+  justify-content: center;
+  position: absolute;
+  top: 20px;
+  left: 16px;
+}
+
+.potopolio-input-page .div-5 {
+  margin-right: -1.14px;
+  font-weight: 400;
+  color: transparent;
+  font-size: 15.4px;
+  line-height: 24px;
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Roboto", Helvetica;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.potopolio-input-page .background-border-10 {
+  display: flex;
+  width: 115px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1px;
+  position: absolute;
+  top: 0;
+  left: 114px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.potopolio-input-page .label-8 {
+  display: inline-flex;
+  align-items: flex-start;
+  padding: 0.5px 0px 18.5px 25px;
+  position: absolute;
+  top: 42px;
+  left: 824px;
+}
+
+.potopolio-input-page .image-8 {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  left: 0;
+}
+
+.potopolio-input-page .text-wrapper-12 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 13.1px;
+  letter-spacing: 0;
+  line-height: 21px;
+  white-space: nowrap;
+}
+
+.potopolio-input-page .button-5 {
+  all: unset;
+  box-sizing: border-box;
+  position: absolute;
+  width: 938px;
+  height: 50px;
+  top: 244px;
+  left: 0;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: #eeeeee;
+}
+
+.potopolio-input-page .image-9 {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 16px;
+  left: 442px;
+}
+
+.potopolio-input-page .text-wrapper-13 {
+  position: absolute;
+  width: 28px;
+  height: 48px;
+  top: 0;
+  left: 468px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: #666666;
+  font-size: 15.1px;
+  letter-spacing: 0;
+  line-height: 48px;
+  white-space: nowrap;
+}
+
+.potopolio-input-page .heading-3 {
+  position: absolute;
+  width: 34px;
+  height: 30px;
+  top: 5px;
+  left: 6px;
+  font-family: var(--www-jobkorea-co-kr-semantic-heading-2-font-family);
+  font-weight: var(--www-jobkorea-co-kr-semantic-heading-2-font-weight);
+  color: #333333;
+  font-size: var(--www-jobkorea-co-kr-semantic-heading-2-font-size);
+  letter-spacing: var(--www-jobkorea-co-kr-semantic-heading-2-letter-spacing);
+  line-height: var(--www-jobkorea-co-kr-semantic-heading-2-line-height);
+  white-space: nowrap;
+  font-style: var(--www-jobkorea-co-kr-semantic-heading-2-font-style);
+}
+
+.potopolio-input-page .experience {
+  position: relative;
+  width: 940px;
+  height: 290px;
+
+}
+
+.potopolio-input-page .background-border-11 {
+  display: flex;
+  flex-direction: column;
+  width: 940px;
+  align-items: flex-start;
+  padding: 1px;
+  position: absolute;
+  top: 41px;
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: var(--wwwjobkoreacokrmystic);
+}
+
+.potopolio-input-page .container-6 {
+  position: relative;
+  align-self: stretch;
+  max-width: 1536px;
+  width: 100%;
+  height: 198px;
+  z-index: 1;
+}
+
+.potopolio-input-page .border-2 {
+  display: flex;
+  width: 898px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 29px 1px 1px 2px;
+  top: 92px;
+  left: 20px;
+  position: absolute;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.potopolio-input-page .textarea-2 {
+  height: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1px 16px;
+  position: relative;
+  flex: 1;
+  flex-grow: 1;
+  background-color: #ffffff;
+  overflow: scroll;
+  border: 1px solid;
+}
+
+.potopolio-input-page .label-9 {
+  position: absolute;
+  width: 19px;
+  height: 16px;
+  top: 9px;
+  left: 16px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: var(--wwwjobkoreacokrdusty-gray);
+  font-size: 10.3px;
+  letter-spacing: 0;
+  line-height: 16.5px;
+  white-space: nowrap;
+}
+
+.potopolio-input-page .background-border-12 {
+  position: absolute;
+  width: 314px;
+  height: 62px;
+  top: 20px;
+  left: 20px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.potopolio-input-page .background-border-13 {
+  position: absolute;
+  width: 314px;
+  height: 62px;
+  top: 20px;
+  left: 344px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.potopolio-input-page .image-10 {
+  position: absolute;
+  width: 18px;
+  height: 17px;
+  top: 23px;
+  left: 285px;
+}
+
+.potopolio-input-page .label-10 {
+  position: absolute;
+  width: 56px;
+  height: 24px;
+  top: 19px;
+  left: 16px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: var(--wwwjobkoreacokrdusty-gray);
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.potopolio-input-page .overlap-group-3 {
+  position: absolute;
+  width: 229px;
+  height: 62px;
+  top: 20px;
+  left: 668px;
+}
+
+.potopolio-input-page .image-11 {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 16px;
+  left: 426px;
+}
+
+.potopolio-input-page .text-wrapper-14 {
+  position: absolute;
+  width: 60px;
+  height: 48px;
+  top: 0;
+  left: 452px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: #666666;
+  font-size: 15.1px;
+  letter-spacing: 0;
+  line-height: 48px;
+  white-space: nowrap;
+}
+
+.potopolio-input-page .heading-4 {
+  position: absolute;
+  width: 116px;
+  height: 30px;
+  top: 5px;
+  left: 6px;
+  font-family: var(--www-jobkorea-co-kr-semantic-heading-2-font-family);
+  font-weight: var(--www-jobkorea-co-kr-semantic-heading-2-font-weight);
+  color: #333333;
+  font-size: var(--www-jobkorea-co-kr-semantic-heading-2-font-size);
+  letter-spacing: var(--www-jobkorea-co-kr-semantic-heading-2-letter-spacing);
+  line-height: var(--www-jobkorea-co-kr-semantic-heading-2-line-height);
+  white-space: nowrap;
+  font-style: var(--www-jobkorea-co-kr-semantic-heading-2-font-style);
+}
+
+.potopolio-input-page .reward {
+  position: relative;
+  width: 940px;
+  height: 209px;
+
+}
+
+.potopolio-input-page .background-border-14 {
+  display: flex;
+  flex-direction: column;
+  width: 940px;
+  height: 162px;
+  align-items: flex-start;
+  padding: 1px;
+  position: absolute;
+  top: 47px;
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: var(--wwwjobkoreacokrmystic);
+}
+
+.potopolio-input-page .container-7 {
+  position: relative;
+  align-self: stretch;
+  max-width: 1536px;
+  width: 100%;
+  height: 111px;
+}
+
+.potopolio-input-page .background-border-15 {
+  position: absolute;
+  width: 351px;
+  height: 62px;
+  top: 20px;
+  left: 19px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.potopolio-input-page .background-border-16 {
+  position: absolute;
+  width: 286px;
+  height: 62px;
+  top: 20px;
+  left: 380px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.potopolio-input-page .background-border-17 {
+  display: flex;
+  width: 115px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1px;
+  position: absolute;
+  top: 20px;
+  left: 676px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.potopolio-input-page .text-wrapper-15 {
+  position: relative;
+  align-self: stretch;
+  margin-top: -1px;
+  font-family: var(--www-jobkorea-co-kr-semantic-input-font-family);
+  font-weight: var(--www-jobkorea-co-kr-semantic-input-font-weight);
+  color: #ffffff;
+  font-size: var(--www-jobkorea-co-kr-semantic-input-font-size);
+  letter-spacing: var(--www-jobkorea-co-kr-semantic-input-letter-spacing);
+  line-height: var(--www-jobkorea-co-kr-semantic-input-line-height);
+  font-style: var(--www-jobkorea-co-kr-semantic-input-font-style);
+}
+
+.potopolio-input-page .button-6 {
+  all: unset;
+  box-sizing: border-box;
+  position: absolute;
+  width: 938px;
+  height: 50px;
+  top: 111px;
+  left: 0;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-color: #eeeeee;
+}
+
+.potopolio-input-page .heading-5 {
+  position: absolute;
+  width: 34px;
+  height: 30px;
+  top: -1px;
+  left: 6px;
+  font-family: var(--www-jobkorea-co-kr-semantic-heading-2-font-family);
+  font-weight: var(--www-jobkorea-co-kr-semantic-heading-2-font-weight);
+  color: #333333;
+  font-size: var(--www-jobkorea-co-kr-semantic-heading-2-font-size);
+  letter-spacing: var(--www-jobkorea-co-kr-semantic-heading-2-letter-spacing);
+  line-height: var(--www-jobkorea-co-kr-semantic-heading-2-line-height);
+  white-space: nowrap;
+  font-style: var(--www-jobkorea-co-kr-semantic-heading-2-font-style);
+}
+
+.potopolio-input-page .lisence {
+  position: relative;
+  width: 940px;
+  height: 208px;
+
+}
+.lisence .lisence_boarder {
+  display: flex;
+  flex-direction: column;
+  width: 940px;
+  align-items: flex-start;
+  padding: 1px;
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: var(--wwwjobkoreacokrmystic);
+}
+
+.potopolio-input-page .background-border-18 {
+  position: relative;
+  width: 450px;
+  height: 62px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.potopolio-input-page .image-12 {
+  position: absolute;
+  width: 18px;
+  height: 17px;
+  top: 23px;
+  left: 421px;
+}
+
+.potopolio-input-page .label-11 {
+  display: flex;
+  flex-direction: column;
+  width: 71px;
+  align-items: flex-start;
+  justify-content: center;
+  position: absolute;
+  top: 20px;
+  left: 16px;
+}
+
+.potopolio-input-page .div-6 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  margin-right: -0.12px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 15.4px;
+  letter-spacing: 0;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.potopolio-input-page .background-border-19 {
+  position: relative;
+  width: 286px;
+  height: 62px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.potopolio-input-page .background-border-20 {
+  display: flex;
+  width: 115px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1px;
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.potopolio-input-page .education {
+  margin-top: 20px;
+  position: flex;
+  width: 940px;
+  height: 193px;
+  top: 425px;
+  left: 1px;
+}
+.potopolio-input-page .background-border-21 {
+  display: flex;
+  flex-direction: column;
+  width: 940px;
+  align-items: flex-start;
+  padding: 1px;
+  position: flex;
+  top: 40px;
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: var(--wwwjobkoreacokrmystic);
+}
+
+.potopolio-input-page .container-8 {
+  position: relative;
+  align-self: stretch;
+  max-width: 1536px;
+  width: 100%;
+  height: 102px;
+  z-index: 1;
+}
+
+.potopolio-input-page .background-border-22 {
+  position: absolute;
+  width: 380px;
+  height: 62px;
+  top: 23px;
+  left: 137px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.potopolio-input-page .overlap-group-4 {
+  position: absolute;
+  width: 106px;
+  height: 62px;
+  top: 20px;
+  left: 20px;
+}
+
+.potopolio-input-page .image-13 {
+  position: absolute;
+  width: 11px;
+  height: 6px;
+  top: 28px;
+  left: 85px;
+}
+
+.potopolio-input-page .paragraph-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 106px;
+  height: 62px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.potopolio-input-page .paragraph {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.94px;
+  padding: 21px 15px 0px;
+  position: relative;
+  flex: 1;
+  align-self: stretch;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.potopolio-input-page .text-wrapper-16 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Roboto", Helvetica;
+  font-weight: 400;
+  color: #a8a8a8;
+  font-size: 14.1px;
+  letter-spacing: 0;
+  line-height: 22.5px;
+  white-space: nowrap;
+}
+
+.potopolio-input-page .text-wrapper-17 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: var(--www-jobkorea-co-kr-semantic-button-font-family);
+  font-weight: var(--www-jobkorea-co-kr-semantic-button-font-weight);
+  color: var(--wwwjobkoreacokrred-orange);
+  font-size: var(--www-jobkorea-co-kr-semantic-button-font-size);
+  letter-spacing: var(--www-jobkorea-co-kr-semantic-button-letter-spacing);
+  line-height: var(--www-jobkorea-co-kr-semantic-button-line-height);
+  white-space: nowrap;
+  font-style: var(--www-jobkorea-co-kr-semantic-button-font-style);
+}
+
+.potopolio-input-page .frame-2 {
+  position: flex;
+  width: 936px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.potopolio-input-page .container-9 {
+  display: flex;
+  flex-direction: column;
+  width: 128px;
+  height: 40px;
+  align-items: flex-start;
+  position: flex;
+  top: 0;
+  left: 808px;
+}
+
+.potopolio-input-page .label-12 {
+  position: absolute;
+  right:0;
+
+  height: 40px;
+  width: 150px;
+}
+
+.potopolio-input-page .image-14 {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 9px;
+  left: 0;
+}
+
+.potopolio-input-page .text-wrapper-18 {
+  position: absolute;
+  height: 21px;
+  top: 8px;
+  left: 20px;
+  font-family: var(--www-jobkorea-co-kr-semantic-label-font-family);
+  font-weight: var(--www-jobkorea-co-kr-semantic-label-font-weight);
+  color: #000000;
+  font-size: var(--www-jobkorea-co-kr-semantic-label-font-size);
+  letter-spacing: var(--www-jobkorea-co-kr-semantic-label-letter-spacing);
+  line-height: var(--www-jobkorea-co-kr-semantic-label-line-height);
+  white-space: nowrap;
+  font-style: var(--www-jobkorea-co-kr-semantic-label-font-style);
+}
+
+.potopolio-input-page .heading-6 {
+  position: flex;
+  width: 104px;
+  height: 30px;
+  top: 2px;
+  left: 0;
+  font-family: var(--www-jobkorea-co-kr-semantic-heading-2-font-family);
+  font-weight: var(--www-jobkorea-co-kr-semantic-heading-2-font-weight);
+  color: #333333;
+  font-size: var(--www-jobkorea-co-kr-semantic-heading-2-font-size);
+  letter-spacing: var(--www-jobkorea-co-kr-semantic-heading-2-letter-spacing);
+  line-height: var(--www-jobkorea-co-kr-semantic-heading-2-line-height);
+  white-space: nowrap;
+  font-style: var(--www-jobkorea-co-kr-semantic-heading-2-font-style);
+}
+
+.div .personal {
+  position: relative;
+  width: 940px;
+  height: auto;
+}
+
+
+
+.personal .english_name_wrapper {
+  width: 104px;
+  height: 24px;
+  top: 5px;
+  left: 0;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #333333;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  line-height: 30px;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.personal .div {
+  width: 133px;
+  height: 15px;
+  top: 6px;
+  left: 807px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: 19.5px;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.personal .span {
+  color: #ff3333;
+}
+
+.personal .text-wrapper-2 {
+  color: #999999;
+}
+
+.personal .background-border {
+  position: relative;
+  width: 940px;
+  height: 176px;
+  top: -10px;
+  left: 0;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dbe0e9;
+}
+
+.personal .overlap-group-wrapper {
+  width: 182px;
+  top: 98px;
+  left: 22px;
+  position: absolute;
+  height: 62px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.personal .overlap-group {
+  position: relative;
+  width: 180px;
+  height: 50px;
+  top: 11px;
+  left: 1px;
+}
+
+.personal .input {
+  width: 180px;
+  top: 9px;
+  position: absolute;
+  height: 41px;
+  left: 0;
+}
+
+.personal .text-wrapper-3 {
+  position: absolute;
+  width: 115px;
+  height: 19px;
+  top: 10px;
+  left: 15px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #333333;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.personal .label {
+  position: absolute;
+  width: 60px;
+  height: 16px;
+  top: 0;
+  left: 15px;
+}
+
+.personal .p {
+  width: 56px;
+  height: 13px;
+  top: 0;
+  left: 0;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 11px;
+  letter-spacing: 0;
+  line-height: 16.5px;
+  position: absolute;
+  white-space: nowrap;
+}
+
+
+
+.personal .label-wrapper {
+  width: 182px;
+  top: 20px;
+  left: 226px;
+  position: absolute;
+  height: 60px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.personal .div-wrapper {
+  position: relative;
+  width: 54px;
+  height: 17px;
+  top: 10px;
+  left: 16px;
+}
+
+.personal .english_name {
+  width: 60px;
+  height: 13px;
+  top: 0;
+  left: 1px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 11px;
+  letter-spacing: 0;
+  line-height: 16.5px;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.personal .background-border-2 {
+  width: 182px;
+  top: 21px;
+  left: 21px;
+  position: absolute;
+  height: 62px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dddddd;
+  gap: 0px;
+  padding:0;
+}
+
+
+
+.personal .overlap-wrapper {
+  width: 276px;
+  top: 20px;
+  left: 431px;
+  position: absolute;
+  height: 62px;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.personal .overlap {
+  position: relative;
+  width: 274px;
+  height: 53px;
+  top: 10px;
+  left: 1px;
+}
+
+.personal .naver-com-wrapper {
+  width: 274px;
+  top: 12px;
+  position: absolute;
+  height: 41px;
+  left: 0;
+}
+
+.personal .naver-com {
+  position: absolute;
+  width: 161px;
+  height: 19px;
+  top: 10px;
+  left: 15px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #333333;
+  font-size: 15.5px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.personal .div-4 {
+  width: 37px;
+  height: 13px;
+  top: 0;
+  left: 15px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 11px;
+  letter-spacing: 0;
+  line-height: 16.5px;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.personal .background-border-3 {
+  width: 483px;
+  top: 98px;
+  
+  position: relative;
+  height: 62px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.personal .overlap-2 {
+  position: relative;
+  width: 480px;
+  height: 53px;
+  top: 10px;
+  left: 2px;
+}
+
+.personal .input-2 {
+  width: 480px;
+  top: 12px;
+  position: absolute;
+  height: 41px;
+  left: 0;
+}
+
+.personal .div-5 {
+  width: 158px;
+  height: 13px;
+  top: 0;
+  left: 14px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 11px;
+  letter-spacing: 0;
+  line-height: 16.5px;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.personal .border {
+  position: absolute;
+  width: 150px;
+  height: 129px;
+  top: 21px;
+  left: 730px;
+  border: 1px solid;
+  border-color: #dddddd;
+}
+
+.personal .text-wrapper-5 {
+  width: 60px;
+  height: 21px;
+  top: 70px;
+  left: 45px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #999999;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 21px;
+  position: absolute;
+  white-space: nowrap;
+}
+
+
+/*소개문*/
+div.introduce {
+  position: relative;
+  width: 940px;
+  height: 121px;
+  display:flex;
+  flex-direction: column;
+
+
+}
+
+.introduce .input {
+  position: relative;
+  width: 938px;
+  height: 78px;
+  top: 1px;
+  left: 1px;
+  background-color: #ffffff;
+}
+
+.introduce .text-wrapper {
+  position: absolute;
+  width: 714px;
+  height: 36px;
+  top: 20px;
+  left: 28px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: #a8a8a8;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+  line-height: normal;
+}
+
+
+
+.introduce .div {
+  position: absolute;
+  width: 279px;
+  height: 24px;
+  top: 2px;
+  left: 0;
+  font-family: "Roboto-Bold", Helvetica;
+  font-weight: 700;
+  color: #333333;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  line-height: 30px;
+  white-space: nowrap;
+}
+
+.introduce .p {
+  position: absolute;
+  width: 136px;
+  height: 15px;
+  top: 6px;
+  left: 807px;
+  font-family: "Roboto-Regular", Helvetica;
+  font-weight: 400;
+  color: transparent;
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: 19.5px;
+  white-space: nowrap;
+}
+
+.introduce .span {
+  color: #ff3333;
+}
+
+.introduce .text-wrapper-2 {
+  color: #999999;
+}
+
+/*소개문//////////////////////////////////////////////////////////*/
+
+
+
+.potopolio-input-page .background {
+  display: absolute;
+  flex-direction: column;
+  width: 100%;
+  height: 35px;
+  align-items: center;
+  padding: 0px 351.5px 1px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-color: var(--wwwjobkoreacokrgallery);
+}
+
+.potopolio-input-page .container-13 {
+  display: flex;
+  max-width: 1436px;
+  width: 1410px;
+  height: 34px;
+  align-items: center;
+  left: 100px;
+  gap: 11px;
+  padding: 0px 0px 0px 1067.25px;
+  position: relative;
+  margin-left: -231.5px;
+  margin-right: -231.5px;
+  overflow: hidden;
+}
+
+.potopolio-input-page .logo-jobkorea-png-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 74px;
+  align-items: flex-start;
+  position: absolute;
+  top: 2px;
+  left: 0;
+}
+
+.potopolio-input-page .logo-jobkorea-png {
+  position: relative;
+  max-width: 74px;
+  width: 74px;
+  height: 29px;
+  background-image: url(./img/logo-jobkorea-png.png);
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.potopolio-input-page .link-3 {
+  display: inline-flex;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.potopolio-input-page .text-wrapper-24 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: var(--www-jobkorea-co-kr-semantic-link-font-family);
+  font-weight: var(--www-jobkorea-co-kr-semantic-link-font-weight);
+  color: #666666;
+  font-size: var(--www-jobkorea-co-kr-semantic-link-font-size);
+  letter-spacing: var(--www-jobkorea-co-kr-semantic-link-letter-spacing);
+  line-height: var(--www-jobkorea-co-kr-semantic-link-line-height);
+  white-space: nowrap;
+  font-style: var(--www-jobkorea-co-kr-semantic-link-font-style);
+}
+
+.potopolio-input-page .link-4 {
+  display: inline-flex;
+  align-items: flex-start;
+  padding: 0px 0px 0px 12px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.potopolio-input-page .vertical-divider {
+  position: absolute;
+  width: 1px;
+  height: 11px;
+  top: 10px;
+  left: 0;
+  background-color: #dddddd;
+}
