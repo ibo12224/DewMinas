@@ -15,6 +15,11 @@
 # git remote add 별명 리포지토리url
 # git remote -v
 ```
+> 만약 변경해야 한다면?
+> ```
+> # git remote remove 삭제할연결
+> ```
+> 후에 시도
 
 #### 협업 수행 하기.
 1. 새로운 브랜치를 생성한다.
