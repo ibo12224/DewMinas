@@ -1,10 +1,7 @@
 package me.leewonjun.dewminas.domains;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.cglib.core.Local;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -16,6 +13,7 @@ import java.util.List;
 
 @Getter
 @Setter
+@ToString(exclude = {"educations", "workExps", "awards", "academicActivities"})
 @NoArgsConstructor
 @Entity(name = "resumes")
 @EntityListeners(value = AuditingEntityListener.class)
@@ -55,14 +53,17 @@ public class Resume {
     }
 
     @OneToMany(mappedBy = "resume")
-    List<Education> educations = new ArrayList<>();
+    private List<Education> educations = new ArrayList<>();
 
     @OneToMany(mappedBy = "resume")
-    List<Award> awards = new ArrayList<>();
+    private List<Award> awards = new ArrayList<>();
 
     @OneToMany(mappedBy = "resume")
-    List<EducationalExp> eduExps = new ArrayList<>();
+    private List<EducationalExp> eduExps = new ArrayList<>();
 
     @OneToMany(mappedBy = "resume")
-    List<AcademicActivity> academicActivities = new ArrayList<>();
+    private List<AcademicActivity> academicActivities = new ArrayList<>();
+
+    @OneToMany(mappedBy = "resume")
+    private List<WorkExp> workExps = new ArrayList<>();
 }

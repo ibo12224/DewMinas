@@ -5,29 +5,22 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import me.leewonjun.dewminas.domains.compositekeys.ProjectSkillPk;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @Entity(name = "skills")
 public class Skill {
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "project_id")
-    private Project project;
-
-    @Id
-    @ManyToOne
-    @JoinColumn(name = "skill_id")
-    private  SkillBook skillInfo;
+    @EmbeddedId
+    private ProjectSkillPk id;
 
     @Column(name = "capability")
     private Byte capability;
 
     @Builder
-    public Skill(Project project, SkillBook skillBook, Byte capability) {
-        this.project = project;
-        this.skillInfo = skillBook;
+    public Skill(ProjectSkillPk pk, Byte capability) {
+        this.id = pk;
         this.capability = capability;
     }
 }

@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import me.leewonjun.dewminas.domains.sectiondatefields.CommonDateField;
 
 import java.util.ArrayList;
 
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 @Setter
 @NoArgsConstructor
 @Entity(name = "projects")
-public class Project extends CommonDateField{
+public class Project extends CommonDateField {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
@@ -26,6 +27,10 @@ public class Project extends CommonDateField{
 
     @Column(nullable = false)
     private String summary;
+
+    @OneToOne
+    @JoinColumn(name="resume_id")
+    private Resume resume;
 
     @OneToOne
     @JoinColumn(name="rep_img")
@@ -50,9 +55,10 @@ public class Project extends CommonDateField{
     private ArrayList<ProjectSource> projectSources = new ArrayList<>();
 
     @Builder
-    public Project(String title, String shortComment, String summary) {
+    public Project(String title, String shortComment, String summary, Resume resume) {
         this.title = title;
         this.shortComment = shortComment;
         this.summary = summary;
+        this.resume = resume;
     }
 }

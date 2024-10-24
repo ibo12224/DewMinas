@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import me.leewonjun.dewminas.domains.sectiondatefields.CommonDateField;
 
 import java.time.LocalDate;
 
@@ -12,7 +13,7 @@ import java.time.LocalDate;
 @Getter
 @NoArgsConstructor
 @Entity(name="educations")
-public class Education extends CommonDateField{
+public class Education extends CommonDateField {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

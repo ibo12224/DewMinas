@@ -1,4 +1,4 @@
-package me.leewonjun.dewminas.domains;
+package me.leewonjun.dewminas.domains.sectiondatefields;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
