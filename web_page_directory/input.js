@@ -12,6 +12,12 @@ document.addEventListener('DOMContentLoaded', function() {
    addFieldSet('lisence');
    window.addEventListener("beforeunload", beforeUnloadHandler);
 
+   const savedImageUrl = localStorage.getItem('imageUrl');
+     if (savedImageUrl) {
+       const imageContainer = document.querySelector('.image-container');
+       imageContainer.style.backgroundImage = `url(${savedImageUrl})`;
+     }
+
 
   document.querySelectorAll('.toggle-button').forEach(button => {
       const sectionName = button.getAttribute('data-section');
@@ -43,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
           // 버튼 클릭 시 해당 섹션을 찾고 'hidden' 클래스를 토글
           if (section) {
               const isNowHidden = section.classList.toggle('hidden');
-              
+
               // 자식 요소들에 'hidden' 클래스도 토글
               Array.from(section.children).forEach(child => {
                   child.classList.toggle('hidden', isNowHidden);
@@ -142,7 +148,7 @@ function addFieldSet(section) {
   // Add numbering to the field sets for each section
   const allFieldSets = container.querySelectorAll('.subframe');
   const index = allFieldSets.length-1; // Determine the new fieldset's number
-  
+
   newFieldSet.querySelectorAll('input, textarea,select,check,e_check').forEach(input => {
       const name = input.name.replace(/\[\d+\]/, `[${index}]`); // Update the field name with the new index
       input.name = name;
@@ -165,6 +171,8 @@ document.getElementById('imageInput').addEventListener('change', function(event)
     const reader = new FileReader();
     reader.onload = function(e) {
       const imageContainer = document.querySelector('.image-container');
+      const imageUrl = e.target.result;
+      localStorage.setItem('imageUrl', imageUrl);
       imageContainer.style.backgroundImage = `url(${e.target.result})`;  // 배경 이미지로 설정
     };
     reader.readAsDataURL(file);
@@ -263,17 +271,13 @@ function beforeUnloadHandler(event) {
 
 document.addEventListener('click', function(event) {
   const wrapper = event.target.closest('.image-wrapper');
+  const container = wrapper.closest('.maincontainer');
+  const section = container.getAttribute('name');
 
   if (wrapper && wrapper.parentElement) {
-    const section = wrapper.getAttribute('data-section');
-
-    if (section) {
-      const fieldCountKey = `fieldCount-${section}`;
-      const currentCount = parseInt(localStorage.getItem(fieldCountKey)) || 0;
-      if (currentCount > 0) {
-        localStorage.setItem(fieldCountKey, currentCount - 1);
-      }
-    }
+    const fieldCountKey = `fieldCount-${section}`;
+    const currentCount = parseInt(localStorage.getItem(fieldCountKey)) || 0;
+    localStorage.setItem(fieldCountKey, currentCount - 1);
     wrapper.parentElement.remove();
   }
 });
