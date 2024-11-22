@@ -7,13 +7,18 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import me.leewonjun.dewminas.domains.of_resume.Resume;
 import me.leewonjun.dewminas.domains.sectiondatefields.CommonDateField;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@EntityListeners(value = AuditingEntityListener.class)
 @Entity(name = "projects")
 public class Project extends CommonDateField {
     @Id
@@ -21,19 +26,19 @@ public class Project extends CommonDateField {
     @Column
     private Long id;
 
-    @Column(nullable = false)
+    @Column
     private String title;
 
-    @Column(name = "short_comment", nullable = false)
+    @Column(name = "short_comment")
     private String shortComment;
 
-    @Column(nullable = false)
+    @Column
     private String summary;
 
-    @Column(name = "owner")
+    @Column(name = "owner", nullable = false)
     private String owner;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="resume_id")
     private Resume resume;
 
@@ -48,7 +53,7 @@ public class Project extends CommonDateField {
     private List<Skill> skills = new ArrayList<>();
 
     @OneToMany(mappedBy = "project", fetch = FetchType.LAZY)
-    private List<Troubleshooting> troubleshootings = new ArrayList<>();
+    private List<Troubleshooting> troubleshooting = new ArrayList<>();
 
     @OneToMany(mappedBy = "project", fetch = FetchType.LAZY)
     private List<Role> roles = new ArrayList<>();
@@ -58,6 +63,14 @@ public class Project extends CommonDateField {
 
     @OneToMany(mappedBy = "id.project", fetch = FetchType.LAZY)
     private List<ProjectSource> projectSources = new ArrayList<>();
+
+    @CreatedDate
+    @Column(name = "created_at")
+    LocalDateTime createdAt;
+
+    @LastModifiedDate
+    @Column(name = "updated_at")
+    LocalDateTime updatedAt;
 
     @Builder
     public Project(String title, String shortComment, String summary, Resume resume, String ownerMail) {

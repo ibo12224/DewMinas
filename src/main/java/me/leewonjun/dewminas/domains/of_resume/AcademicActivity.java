@@ -82,4 +82,9 @@ public class AcademicActivity implements Updatable<AcademicActivitySummary> {
         Updatable up = (Updatable)obj;
         return up.getId().equals(this.id);
     }
+
+    @Override
+    public void setParent(Object parent) {
+        this.setResume((Resume)parent);
+    }
 }

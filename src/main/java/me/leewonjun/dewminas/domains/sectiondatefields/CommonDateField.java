@@ -12,10 +12,10 @@ import java.time.LocalDateTime;
 @Setter
 @MappedSuperclass
 public abstract class CommonDateField {
-    @Column(name = "from_date", nullable = false)
+    @Column(name = "from_date")
     protected LocalDateTime fromDate;
 
-    @Column(name = "to_date", nullable = false)
+    @Column(name = "to_date")
     protected  LocalDateTime toDate;
 
 }

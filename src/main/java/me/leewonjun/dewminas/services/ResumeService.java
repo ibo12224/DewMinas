@@ -113,7 +113,7 @@ public class ResumeService {
                 entity.updateData(item); // 갱신 메소드 호출 -> 갱신 작업 위임
             } else {
                 entity = (E) item.specify();
-                entity.setResume(resume);
+                entity.setParent(resume);
                 repository.save(entity); // 새 엔티티 등록작업 리포지토리 인스턴스에 위임.
             }
         }

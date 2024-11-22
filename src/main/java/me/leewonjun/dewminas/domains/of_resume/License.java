@@ -70,4 +70,9 @@ public class License implements Updatable<LicenseSummary> {
         Updatable up = (Updatable)obj;
         return up.getId().equals(this.id);
     }
+
+    @Override
+    public void setParent(Object parent) {
+        this.setResume((Resume)parent);
+    }
 }

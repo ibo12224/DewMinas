@@ -37,11 +37,25 @@ public class Role implements Updatable<RoleSummary> {
 
     @Override
     public boolean updateData(RoleSummary summary) {
-        return false;
+        boolean res = false;
+        if(!this.roleTitle.equals(summary.getRoleTitle())) {
+            this.roleTitle = summary.getRoleTitle(); res = true;
+        }
+        if(!this.roleComment.equals(summary.getRoleComment())) {
+            this.roleComment = summary.getRoleComment(); res = true;
+        }
+        return res;
     }
 
     @Override
     public boolean isDifferentWith(Object obj) {
-        return false;
+        Role other = (Role) obj;
+        return (this.roleTitle.equals(other.getRoleTitle()))
+                && (this.roleComment.equals(other.getRoleComment()));
+    }
+
+    @Override
+    public void setParent(Object parent) {
+        this.setProject((Project) parent);
     }
 }

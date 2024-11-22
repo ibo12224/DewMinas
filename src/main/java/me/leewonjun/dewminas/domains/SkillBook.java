@@ -13,7 +13,7 @@ public class SkillBook {
     @Column
     private Long id;
 
-    @Column(name = "skill_name")
+    @Column(name = "skill_name", unique = true)
     private String skillName;
 
     @Column(name = "img_url")

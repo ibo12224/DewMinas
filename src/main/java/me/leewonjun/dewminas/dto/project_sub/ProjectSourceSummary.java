@@ -5,10 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import me.leewonjun.dewminas.domains.ProjectSource;
-import me.leewonjun.dewminas.domains.Updatable;
-import me.leewonjun.dewminas.domains.compositekeys.OpenSourceLibsPk;
-import me.leewonjun.dewminas.dto.resume_sub.Specifiable;
-import me.leewonjun.dewminas.repositories.project_repo.ProjectRepository;
 
 @Getter
 @Setter
