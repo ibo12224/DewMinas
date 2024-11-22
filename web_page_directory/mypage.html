@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="css/mypage.css" />
+        <link rel="stylesheet" href="css/styleguide.css" />
+    </head>
+    <body>
+        <div class="main-bar"><img class="logo" src="img/logo.png"></img></div>
+        <div class="frame">
+            <div class="profile-picture"></div>
+            <div class="view">
+                <div class="head">
+                    <div class="head-text">내프로필</div>
+                    <button class="profile-button" id="edit">수정</button>
+                    <button class="profile-button" id="save" style="display: none;">저장</button>
+                </div>
+                <div class="profile-frame">
+                    <label class="profile-label">이름:</label>
+                    <input class="profile-input" name="nameKor" disabled>
+                </div>
+                <div class="profile-frame">
+                    <label class="profile-label">영어 이름:</label>
+                    <input class="profile-input" name="nameEng" disabled>
+                </div>
+                <div class="profile-frame">
+                    <label class="profile-label">닉네임:</label>
+                    <input class="profile-input" name="nickname" disabled>
+                </div>
+                <div class="profile-frame">
+                    <label class="profile-label">이메일:</label>
+                    <input class="profile-input" name="email" disabled>
+                </div>
+                <div class="profile-frame">
+                    <label class="profile-label">전화번호:</label>
+                    <input class="profile-input" name="phoneNumber" disabled>
+                </div>
+            </div>
+        </div>
+
+        <div class="sumarry">
+            <div class="head"><div class="head-text">자기소개서</div></div>
+            <div class="portfolio">
+                <div class="portfolio-frame"> 
+                    <div class="portfolio-intro">software enginear</div>
+                    <div class="portfolio-update">마지막 수정일: 1980.10.23</div>
+                   
+                </div>
+                <div class="portfolio-plus">
+                    <button class="plus-button">
+                        <img src="img/portfolio-plus.png">
+
+                    </button>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="./js/mypage.js"></script>
+</html>

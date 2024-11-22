@@ -1,0 +1,244 @@
+.logo{
+    width: 90px;
+    height: 35px;
+    position: sticky;
+    z-index: 9999;
+}
+
+.main-bar {
+    display: flex;
+    height: 35px;
+    padding: 0px 280px;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    background: #FEF9FE;
+}
+
+body{
+    padding: 0px 0px;
+    margin:0px 0px;
+    display: flex;
+    flex-direction: column;
+    height: 1024px;
+    align-items: center;
+    position: relative;
+    background: var(--profile-background);
+}
+
+.portfolio{
+    display: flex;
+    padding: 0px 20px;
+    align-items: center;
+    align-content: center;
+    gap: 5px;
+    align-self: stretch;
+    flex-wrap: wrap;
+}
+
+.frame {
+    position: relative;
+    width: 1098px;
+    height: 397px;
+}
+
+.profile-picture {
+    position: absolute;
+    width: 253px;
+    height: 320px;
+    top: 31px;
+    left: 13px;
+    background-color: #ffffff;
+    border-radius: 25px;
+}
+
+.view {
+    display: flex;
+    flex-direction: column;
+    width: 710px;
+    height: 320px;
+    align-items: center;
+    position: absolute;
+    top: 31px;
+    left: 374px;
+    background-color: #ffffff;
+    border-radius: 12px;
+}
+
+.head {
+    position: relative;
+    width: 100%;
+    height: 56px;
+    background-color: var(--profile-head-background);
+    border-radius: 12px 12px 0px 0px;
+}
+.head-text {
+    position: absolute;
+    width: 108px;
+    height: var(--profile-head-font-line-height);
+    left: 19px;
+    font-family: "Abhaya Libre-Bold", Helvetica;
+    font-weight: var(--profile-head-font-font-weight); /* 가중치 */
+    color: var(--profile-head-font-color);            /* 글자 색상 */
+    font-size: var(--profile-head-font-size);         /* 글자 크기 */
+    font-style: var(--profile-head-font-style);       /* 글자 스타일 */
+    line-height: var(--profile-head-font-line-height); /* 줄 간격 */
+    text-align: center;
+    letter-spacing: 0; /* 글자 간격 */
+}
+.portfolio-frame{
+    display: flex;
+width: 251px;
+height: 400px;
+position: relative;
+padding: 0px 18px 0px 18px;
+flex-direction: column;
+justify-content: flex-end;
+align-items: flex-start;
+border-radius: 20px;
+background: #F1E1FF;
+}
+
+
+.portfolio-plus {
+    display: flex;
+    width: 251px;
+    height: 400px;
+    position: relative;
+    padding: 0px 18px;
+    flex-direction: column;         /* 자식 요소들이 세로로 배치됨 */
+    justify-content: center;        /* 자식 요소들을 수직으로 가운데 배치 */
+    align-items: center;            /* 자식 요소들을 수평으로 가운데 배치 */
+    border-radius: 20px;
+    background: #F1E1FF;
+    order: 99;
+}
+
+
+.portfolio-intro{
+    display: flex;
+    width: 216px;
+    height: 248px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #512DA8;
+font-family: Roboto;
+font-size: 32px;
+font-style: normal;
+font-weight: 400;
+line-height: 52px; /* 162.5% */
+}
+
+.portfolio-update{
+    display: flex;
+width: 240px;
+height: 51px;
+flex-direction: column;
+justify-content: center;
+    color: #000;
+    font-family: Roboto;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 52px; /* 346.667% */
+    border-top: 1px solid #BDBDBD;
+
+}
+
+.plus-button {
+    position: relative;
+    width: 69px;           /* 너비 69px */
+    height: 69px;          /* 높이 69px */
+    flex-shrink: 0;        /* 부모 크기가 줄어들 때 이 요소는 크기가 줄어들지 않도록 설정 */
+    background: none;      /* 배경 제거 */
+    border: none;          /* 테두리(경계선) 제거 */
+    fill: none;            /* SVG 아이콘의 내부 색상 제거 */
+    stroke: none;          /* 경계선 색상 제거 */
+}
+
+
+.profile-button{
+    display: flex;
+    width: 68px;
+    height: 34px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 17px;
+    position: absolute;
+    top: 8px;
+    left: 613px;
+    background-color: #faf9f0;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 0px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 900;
+    color: var(--profile-head-background);
+}
+
+
+.profile-frame {
+    position: relative;
+    width: 660px;
+    height: 50px;
+    border-bottom-width: 0.5px;
+    border-bottom-style: solid;
+    border-color: #00000080;
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-label {
+    display: flex;
+    width: 90px;
+    height: 50px;
+    flex-direction: column;
+    justify-content: center;
+    color: #000;
+    position: relative;
+text-align: right;
+font-family: "Abhaya Libre";
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px; /* 150% */
+letter-spacing: -0.8px;
+}
+
+.profile-input {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    font-family: "Abhaya Libre-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 16px;
+    text-align: right;
+    line-height: 24px;
+    background-color: none;
+}
+
+.profile-input:disabled {
+    background-color: transparent;  /* 배경색을 원하는 색으로 */
+    color: black;                  /* 텍스트 색상 */
+    border: none;       /* 테두리 스타일 */
+}
+
+.sumarry {
+    display: flex;
+    flex-direction: column;
+    width: 1070px;
+
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 20px;
+
+background: #FFF;
+padding: 0px 0px 20px 0px;
+
+}

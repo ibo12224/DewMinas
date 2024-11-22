@@ -1,4 +1,27 @@
-:root {
+:root {  
+  /*  사용자 설정용 스타일 가이드         */
+  --primary-color: #333;         /* 뒷배경 색상 */
+  --text-color: #002060;;         /* 텍스트 색상 */
+  --line-color: #002060;       /* 줄 바꿈 색상 */
+  --accent-color: #ff6600;       /* 강조 색상 */
+  --background-color: #f5f5f5;   /* 배경 색상 */
+  --border-color: #ddd;          /* 테두리 색상 */
+  --highlight-color: #0088cc;    /* 하이라이트 색상 */
+  --project-title:#FFF;
+  --poject-border:#FFF;
+  --project-tborder:linear-gradient(180deg, #003CB4 0%, #002060 61%, #002060 100%);
+
+
+  --profile-background:linear-gradient(180deg, #EDE7F6 54.15%, #FBF8FF 100%);
+  --profile-head-background:#F582FB;
+  --profile-head-font-color: #000;
+  --profile-head-font-size: 20px;
+  --profile-head-font-style: normal;
+  --profile-head-font-font-weight: 900;
+  --profile-head-font-line-height: 56px; /* 100% */
+
+
+
   --wwwjobkoreacokralizarin-crimson: rgba(232, 39, 45, 1);
   --wwwjobkoreacokrdusty-gray: rgba(153, 153, 153, 1);
   --wwwjobkoreacokrgallery: rgba(236, 236, 236, 1);
@@ -96,5 +119,7 @@
   --www-jobkorea-co-kr-roboto-bold-16-88-letter-spacing: 0px;
   --www-jobkorea-co-kr-roboto-bold-16-88-line-height: 27px;
   --www-jobkorea-co-kr-roboto-bold-16-88-font-style: normal;
+
+
   
 }
