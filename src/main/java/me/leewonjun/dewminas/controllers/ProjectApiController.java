@@ -21,7 +21,7 @@ public class ProjectApiController {
 
     @GetMapping("/api/project")
     public ResponseEntity<ProjectResponse> findProject(
-            @RequestParam(name = "project_id", required = true) Long projectId)
+            @RequestParam(name = "id", required = true) Long projectId)
     {
         Project p = projectService.findProject(projectId);
         return ResponseEntity.status(HttpStatus.OK).body(new ProjectResponse(p));
@@ -37,7 +37,7 @@ public class ProjectApiController {
 
     @PutMapping("/api/project")
     public ResponseEntity<ProjectResponse> updateProject (
-            @RequestParam(name = "project_id", required = true) Long projectId,
+            @RequestParam(name = "id", required = true) Long projectId,
             @RequestBody UpdateProjectRequest request
     ){
         projectService.updateProject(projectId, request);
@@ -47,9 +47,9 @@ public class ProjectApiController {
 
     @DeleteMapping("/api/project")
     public ResponseEntity<Object> deleteProject(
-            @RequestParam(name = "project_id", required = true) Long projectId)
+            @RequestParam(name = "id", required = true) Long projectId)
     {
-
+        projectService.deleteProject(projectId);
         return ResponseEntity.ok().build();
     }
 }
