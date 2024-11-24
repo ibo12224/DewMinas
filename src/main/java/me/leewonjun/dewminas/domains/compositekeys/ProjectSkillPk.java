@@ -1,6 +1,7 @@
 package me.leewonjun.dewminas.domains.compositekeys;
 
 import jakarta.persistence.Embeddable;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
@@ -19,11 +20,11 @@ import java.util.Objects;
 @AllArgsConstructor
 @Embeddable
 public class ProjectSkillPk implements Serializable {
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id")
     private Project project;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "skill_id")
     private SkillBook skillBook;
 

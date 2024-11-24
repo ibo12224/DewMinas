@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import me.leewonjun.dewminas.domains.compositekeys.ProjectSkillPk;
 
+import java.util.Objects;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,11 +18,21 @@ public class Skill {
     private ProjectSkillPk id;
 
     @Column(name = "capability")
-    private Byte capability;
+    private int capability;
 
     @Builder
-    public Skill(ProjectSkillPk pk, Byte capability) {
+    public Skill(ProjectSkillPk pk, int capability) {
         this.id = pk;
         this.capability = capability;
+    }
+
+    public String getSkillName() {
+        Objects.requireNonNull(this.getId().getSkillBook(), "Skill.getSkillName() : no skill book");
+        return this.id.getSkillBook().getSkillName();
+    }
+
+    public String getImageUrl() {
+        Objects.requireNonNull(this.id.getSkillBook(), "Skill.getSkillName() : no skill book");
+        return this.id.getSkillBook().getImageUrl();
     }
 }

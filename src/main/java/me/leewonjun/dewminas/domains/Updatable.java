@@ -7,7 +7,5 @@ public interface Updatable<T extends Specifiable> extends Contrastable {
     boolean updateData(T summary);
     // Lombok @Getter에 의해 오버라이딩
     Long getId();
-    default void setResume(Resume resume) {
-        throw new UnsupportedOperationException("Updatable : setResume() - only for resume sub elements");
-    }
+    void setParent(Object parent);
 }
