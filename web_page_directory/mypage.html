@@ -40,21 +40,33 @@
 
         <div class="main-container">
             <div class="portfolio">
-                <div class="head"><div class="head-text">자기소개서</div></div>
+                <div class="head">
+                    <div class="head-text">이력서</div>
+                </div>
+                <div class="portfolio-frame">
+                    <a  class="plus-button" href="input.html" style="display: none;">
+                        <img class="portfolio-button" src="img/portfolio-plus.png" href="input.html" alt="Add Portfolio">
+                    </a>
+                    
+                    <div class="portfolio-fame" id="portfolio-container"></div>
+                </div>
+            </div>
+            
+            <div class="portfolio">
+                <div class="head"><div class="head-text">프로젝트</div></div>
                 <div class="portfolio-frame"> 
-                    <button class="plus-button " style="display: none;">
-                        <img src="img/portfolio-plus.png">
-                    </button>
                     <div class="portfolio-fame" >
                         <label class="portfolio-text-1" name="desiredPosition">Back-end developer</label>
                         <label class="portfolio-text-2" >1</label>
                         <label class="portfolio-text-2">1</label>
-                        <button class="fix-button" id="fix-button">수정</button>
-                        <button class="delete-button" id="delete-button">삭제</button>
+                        <button class="fix-button" id="p-fix-button">수정</button>
+                        <button class="delete-button" id="p-delete-button">삭제</button>
                     </div>
-                </div>
+                </div>                    
+                <button class="project-plus-button" >
+                    <div class="project-button">프로젝트 추가</div>
+                </button>
             </div>
-                
         </div>
     </body>
     <script src="./js/mypage.js"></script>

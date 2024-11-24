@@ -21,9 +21,9 @@
   --profile-head-font-line-height: 56px; /* 100% */
 
   --profile-text-size:16px;
-  --profile-button-size:20px;
-
-
+  --profile-button-size:20px; 
+  --profile-frame-color:#F1E1FF;
+  --profile-button-color:#B3A8EF;
 
   --wwwjobkoreacokralizarin-crimson: rgba(232, 39, 45, 1);
   --wwwjobkoreacokrdusty-gray: rgba(153, 153, 153, 1);
