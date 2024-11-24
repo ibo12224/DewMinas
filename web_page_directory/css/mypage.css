@@ -28,12 +28,14 @@ body{
 
 .portfolio{
     display: flex;
-    padding: 0px 20px;
     align-items: center;
     align-content: center;
     gap: 5px;
     align-self: stretch;
     flex-wrap: wrap;
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 20px;
 }
 
 .frame {
@@ -88,18 +90,81 @@ body{
 }
 .portfolio-frame{
     display: flex;
-width: 251px;
-height: 400px;
+width: 100%;
+height: 120px;
 position: relative;
-padding: 0px 18px 0px 18px;
+margin: 5px 18px 5px 18px;
 flex-direction: column;
 justify-content: flex-end;
 align-items: flex-start;
 border-radius: 20px;
 background: #F1E1FF;
 }
+.portfolio-fame{
+    display: flex;
+width: 100%;
+height: 100%;
+position: relative;
+flex-direction: column;
+align-items: flex-start;
+gap:10px;
+margin: 15px 18px 5px 18px;
+}
+.portfolio-text-1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--color-black-solid, #000);
+font-family: Roboto;
+font-size: var(--profile-head-font-size);
+font-style: normal;
+font-weight: 400;
+line-height: var(--profile-head-font-size); /* 325% */
+margin-bottom: 10px;
+}
+.portfolio-text-2{
+    display: flex;
 
+    flex-direction: column;
+    justify-content: center;
+    color: var(--color-black-solid, #000);
+font-family: Roboto;
+font-size: var(--profile-text-size);
+font-style: normal;
+font-weight: 400;
+line-height: var(--profile-text-size); /* 325% */
 
+}
+.fix-button{
+    display: flex;
+width: 88px;
+height: 52px;
+justify-content: center;
+align-items: center;
+gap: var(--item-spacing-10, 10px);
+position: absolute;
+right: 176px;
+top: 20px;
+border-radius: 8px;
+background: #B3A8EF;
+border:0px;
+font-size: var(--profile-button-size);
+}
+.delete-button{
+    display: flex;
+width: 88px;
+height: 52px;
+justify-content: center;
+align-items: center;
+gap: var(--item-spacing-10, 10px);
+position: absolute;
+right: 45px;
+top: 20px;
+border-radius: 8px;
+background: #B3A8EF;
+border:0px;
+font-size: var(--profile-button-size);
+}
 .portfolio-plus {
     display: flex;
     width: 251px;
@@ -115,36 +180,6 @@ background: #F1E1FF;
 }
 
 
-.portfolio-intro{
-    display: flex;
-    width: 216px;
-    height: 248px;
-    flex-direction: column;
-    justify-content: center;
-    flex-shrink: 0;
-    color: #512DA8;
-font-family: Roboto;
-font-size: 32px;
-font-style: normal;
-font-weight: 400;
-line-height: 52px; /* 162.5% */
-}
-
-.portfolio-update{
-    display: flex;
-width: 240px;
-height: 51px;
-flex-direction: column;
-justify-content: center;
-    color: #000;
-    font-family: Roboto;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 52px; /* 346.667% */
-    border-top: 1px solid #BDBDBD;
-
-}
 
 .plus-button {
     position: relative;
@@ -227,7 +262,20 @@ letter-spacing: -0.8px;
     border: none;       /* 테두리 스타일 */
 }
 
-.sumarry {
+.main-container {
+    display: flex;
+    flex-direction: column;
+    width: 1070px;
+
+    align-items: center;
+    gap: 10px;
+    position: relative;
+
+    padding: 0px 0px 20px 0px;
+
+}
+
+.main-container1 {
     display: flex;
     flex-direction: column;
     width: 1070px;
