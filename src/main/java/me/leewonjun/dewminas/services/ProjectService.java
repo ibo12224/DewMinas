@@ -134,6 +134,7 @@ public class ProjectService {
         repository.deleteAllByIdInBatch(allKeys);
     }
 
+    @Transactional
     public void deleteProject(Long id) {
         Project project = projectRepository.findById(id).orElseThrow(
                 ()-> new IllegalArgumentException("ProjectService.deleteProject() : no project id "+id)

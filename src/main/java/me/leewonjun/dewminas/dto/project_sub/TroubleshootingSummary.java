@@ -32,6 +32,7 @@ public class TroubleshootingSummary implements Specifiable {
         return Troubleshooting.builder()
                 .problem(this.problem)
                 .result(this.result)
+                .solution(this.solution)
                 .lesson(this.lesson)
                 .build();
     }

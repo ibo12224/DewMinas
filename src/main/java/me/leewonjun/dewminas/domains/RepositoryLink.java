@@ -5,6 +5,7 @@ import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import me.leewonjun.dewminas.domains.compositekeys.RepoLinkPk;
 
@@ -12,6 +13,8 @@ import java.util.Objects;
 
 @Getter
 @Setter
+@NoArgsConstructor // 없으니 에러가 발생.
+//org.hibernate.InstantiationException: No default constructor for entity 'me.leewonjun.dewminas.domains.RepositoryLink'
 @Entity(name = "repository_links")
 public class RepositoryLink {
 
