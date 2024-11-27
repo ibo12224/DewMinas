@@ -8,14 +8,110 @@ const profileData = {
 };
 
 // 로컬 JSON 포트폴리오 데이터 예제
-const portfolioData = [
+const exportfolioData = JSON.stringify([
     {
         id: 1,
         desiredPosition: "Back-end developer",
         createdAt: "2024-01-01",
-        updatedAt: "2024-01-02"
+        updatedAt: "2024-01-02",
+        "educations": [
+      {
+        "type": false,
+        "institution_name": "동의대학교",
+        "department": "컴퓨터공학과",
+        "degree": "학사",
+        "gpa": "4.2",
+        "max_gpa": "4.5",
+        "from_date": "2020-03-01",
+        "to_date": "2024-02-28",
+        "to_now": false
+      },
+      {
+        "type": true,
+        "institution_name": "서울대학교",
+        "department": "전자공학과",
+        "degree": "석사",
+        "gpa": "4.3",
+        "max_gpa": "4.5",
+        "from_date": "2024-03-01",
+        "to_date": "2026-02-28",
+        "to_now": false
+      }
+    ],
+    "licenses": [
+      {
+        "name": "정보처리기사",
+        "organization_name": "한국산업인력공단",
+        "issued_date": "2023-07-15"
+      },
+      {
+        "name": "AWS Certified Solutions Architect",
+        "organization_name": "AWS",
+        "issued_date": "2024-05-20"
+      }
+    ],
+    "awards": [
+      {
+        "award_name": "최우수상",
+        "competition_name": "2023 프로그래밍 경진대회",
+        "organization_name": "부산대학교",
+        "award_date": "2023-10-05"
+      },
+      {
+        "award_name": "우수상",
+        "competition_name": "2022 해커톤",
+        "organization_name": "서울대학교",
+        "award_date": "2022-11-15"
+      }
+    ],
+    "eduExps": [
+      {
+        "education_name": "AI 머신러닝 과정",
+        "organization_name": "K-디지털 트레이닝",
+        "from_date": "2023-01",
+        "to_date": "2023-06",
+        "to_now": false
+      },
+      {
+        "education_name": "Cloud Computing 과정",
+        "organization_name": "AWS Academy",
+        "from_date": "2024-06",
+        "to_date": "2024-12",
+        "to_now": false
+      }
+    ],
+    "academicActivities": [
+      {
+        "education_name": "딥러닝 논문 발표",
+        "academic_institution": "한국컴퓨터학회",
+        "conference_name": "AI 컨퍼런스",
+        "activity_date": "2023-09"
+      },
+      {
+        "education_name": "머신러닝 관련 워크숍",
+        "academic_institution": "서울대학교",
+        "conference_name": "AI 워크숍",
+        "activity_date": "2024-03"
+      }
+    ],
+    "workExps": [
+      {
+        "job_title": "소프트웨어 엔지니어",
+        "company_name": "삼성전자",
+        "from_date": "2021-03",
+        "to_date": "2023-08",
+        "responsibilities": "백엔드 서비스 개발 및 유지보수"
+      },
+      {
+        "job_title": "백엔드 개발자",
+        "company_name": "LG 전자",
+        "from_date": "2023-09",
+        "to_date": "2023-09",
+        "responsibilities": "클라우드 기반 백엔드 시스템 설계 및 개발"
+      }
+    ]
     }
-];
+]);
 
 // 프로젝트 데이터 로컬 스토리지에서 가져오기
 const project = JSON.parse(localStorage.getItem('formData')); 
@@ -27,21 +123,20 @@ document.addEventListener("DOMContentLoaded", () => {
     setupProfileInputs();
     setupEditAndSaveButtons();
 });
-
-
 // 페이지 로드 시 호출되는 함수
 window.onload = async () => {
     try {
-        const portfolioData = await fetchPortfolioData();
-        renderPortfolio(portfolioData ? portfolioData[0] : null);
+        const portfolioData = await fetchPortfolioData();   
+        localStorage.setItem("portfolioData", exportfolioData);
+        const parsedData = JSON.parse(exportfolioData); //테스트 끝나고 ex제거
+        console.log(parsedData)
+        //형태를 잘 보고 배열로 한번 감싸져있을 수 있음
+        renderPortfolio( parsedData ?  parsedData[0] : null);
+
     } catch (error) {
         console.error('포트폴리오 데이터를 불러오는 중 오류 발생:', error);
-        renderPortfolio(null); // 오류 발생 시 + 버튼 표시
     }
 };
-
-
-
 
 
 // 서버에서 프로필 데이터를 가져오고 input에 채우는 함수
@@ -66,7 +161,7 @@ async function setupProfileInputs() {
     } catch (error) {
         console.error('프로필 데이터를 불러오는 중 오류 발생:', error);
         const serverProfileData = profileData;
-        // 가져온 데이터를 input에 채우기
+        // 예시 데이터 채우기
         const inputs = document.querySelectorAll(".profile-input");
         inputs.forEach(input => {
             const name = input.getAttribute('name');
@@ -151,15 +246,17 @@ function renderPortfolio(data) {
     const plusButton = document.querySelector('.plus-button');
 
     if (data) {
+
         // 데이터가 있으면 포트폴리오 UI 표시
         plusButton.style.display = 'none';
         portfolioContainer.innerHTML = `
             <label class="portfolio-text-1" name="desiredPosition">${data.desiredPosition}</label>
             <label class="portfolio-text-2">${data.createdAt}</label>
             <label class="portfolio-text-2">${data.updatedAt}</label>
-            <button class="fix-button" onclick="editPortfolio(${data.id})">수정</button>
+            <a class="fix-button" onclick="editPortfolio(${data.id})" href="resume-update.html">수정</a>
             <button class="delete-button" onclick="deletePortfolio(${data.id})">삭제</button>
         `;
+
     } else {
         // 데이터가 없으면 + 버튼 표시
         portfolioContainer.innerHTML = '';
@@ -169,10 +266,7 @@ function renderPortfolio(data) {
 
 // 수정 버튼 클릭 시 호출
 function editPortfolio(id) {
-    console.log(`Edit portfolio with id: ${id}`);
 
-
-    // 수정 로직 추가
 }
 
 function deletePortfolio(id) {
