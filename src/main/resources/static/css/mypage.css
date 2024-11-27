@@ -195,7 +195,7 @@ font-size: var(--profile-button-size);
     background: var(--profile-frame-color);
 
 }
-.portfolio-button {
+.plus-image {
     pointer-events: none;
 
 }

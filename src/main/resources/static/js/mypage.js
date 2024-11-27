@@ -27,8 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
     setupProfileInputs();
     setupEditAndSaveButtons();
 });
-
-
 // 페이지 로드 시 호출되는 함수
 window.onload = async () => {
     try {
@@ -39,9 +37,6 @@ window.onload = async () => {
         renderPortfolio(null); // 오류 발생 시 + 버튼 표시
     }
 };
-
-
-
 
 
 // 서버에서 프로필 데이터를 가져오고 input에 채우는 함수
