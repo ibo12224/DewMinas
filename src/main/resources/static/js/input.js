@@ -1,15 +1,13 @@
-//부모 클래스 가장 앞 이니셜 따서 버튼 이름들 지정
-//button_ci=>container_introdce
 const frame = document.querySelector(".form");
 
 document.addEventListener('DOMContentLoaded', function() {
    addFieldSet('skill');
-   addFieldSet('career');
-   addFieldSet('experience');
-   addFieldSet('academy');
-   addFieldSet('rewards');
-   addFieldSet('education');
-   addFieldSet('lisence');
+   addFieldSet('workExps');
+   addFieldSet('eduExps');
+   addFieldSet('academicActivities');
+   addFieldSet('awards');
+   addFieldSet('educations');
+   addFieldSet('licenses');
    window.addEventListener("beforeunload", beforeUnloadHandler);
 
    const savedImageUrl = localStorage.getItem('imageUrl');
@@ -72,92 +70,72 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ///////////////////////////////////////////////plusbutton
 document.addEventListener('DOMContentLoaded', function () {
-  // Initialize each section by loading saved field count from localStorage
+  // Initialize sections based on saved field counts
   document.querySelectorAll('.plusbutton').forEach(button => {
       const section = button.getAttribute('data-section');
-      const savedFieldCount = parseInt(localStorage.getItem(`fieldCount-${section}`)) || 0;
+      const savedFieldCount = getFieldCount(section);
 
       // Load the saved field sets when the page loads
       for (let i = 0; i < savedFieldCount; i++) {
           addFieldSet(section);
       }
+
+      // Attach click event listener to each button
+      button.addEventListener('click', () => handleAddButtonClick(section));
   });
 });
 
-document.querySelectorAll('.plusbutton').forEach(button => {
-  button.addEventListener('click', (e) => {
-      const section = e.currentTarget.getAttribute('data-section');
-      addFieldSet(section);  // Add a new field set when the button is clicked
-
-      // Save the updated field count to localStorage
-      const fieldCountKey = `fieldCount-${section}`;
-      const currentCount = parseInt(localStorage.getItem(fieldCountKey)) || 0;
-      localStorage.setItem(fieldCountKey, currentCount + 1);
-  });
-});
-function addFieldSet(section) {
-  let template, container;
-  let fieldPrefix; // Field prefix to keep track of the numbers for each section
-
-  switch (section) {
-      case 'skill':
-          template = document.querySelector('.maincontainer[name="skill"] .subframe');
-          container = document.querySelector('.maincontainer[name="skill"] .mainframe');
-          fieldPrefix = 'skill'; // For skill section, use 'skill' as prefix
-          break;
-      case 'career':
-          template = document.querySelector('.maincontainer[name="career"] .subframe');
-          container = document.querySelector('.maincontainer[name="career"] .mainframe');
-          fieldPrefix = 'career'; // For career section, use 'career' as prefix
-          break;
-      case 'experience':
-          template = document.querySelector('.maincontainer[name="experience"] .subframe');
-          container = document.querySelector('.maincontainer[name="experience"] .mainframe');
-          fieldPrefix = 'experience';
-          break;
-      case 'academy':
-          template = document.querySelector('.maincontainer[name="academy"] .subframe');
-          container = document.querySelector('.maincontainer[name="academy"] .mainframe');
-          fieldPrefix = 'academy';
-          break;
-      case 'rewards':
-          template = document.querySelector('.maincontainer[name="rewards"] .subframe');
-          container = document.querySelector('.maincontainer[name="rewards"] .mainframe');
-          fieldPrefix = 'rewards';
-          break;
-      case 'education':
-          template = document.querySelector('.maincontainer[name="education"] .subframe');
-          container = document.querySelector('.maincontainer[name="education"] .mainframe');
-          fieldPrefix = 'education';
-          break;
-      case 'lisence':
-          template = document.querySelector('.maincontainer[name="lisence"] .subframe');
-          container = document.querySelector('.maincontainer[name="lisence"] .mainframe');
-          fieldPrefix = 'lisence';
-          break;
-      default:
-          console.warn(`Unknown section: ${section}`);
-          return;
-  }
-
-  // Clone the template and reset the input fields
-  const newFieldSet = template.cloneNode(true);
-  newFieldSet.querySelectorAll('input, textarea,select, check,e_check').forEach(input => input.value = '');
-  newFieldSet.style.display = 'flex';
-
-  // Add numbering to the field sets for each section
-  const allFieldSets = container.querySelectorAll('.subframe');
-  const index = allFieldSets.length-1; // Determine the new fieldset's number
-
-  newFieldSet.querySelectorAll('input, textarea,select,check,e_check').forEach(input => {
-      const name = input.name.replace(/\[\d+\]/, `[${index}]`); // Update the field name with the new index
-      input.name = name;
-  });
-
-  // Add the new field set to the container
-  container.appendChild(newFieldSet);
+// Helper to get and set field count in localStorage
+function getFieldCount(section) {
+  return parseInt(localStorage.getItem(`fieldCount-${section}`)) || 0;
 }
 
+function setFieldCount(section, count) {
+  localStorage.setItem(`fieldCount-${section}`, count);
+}
+
+// Handle adding a new field set when the button is clicked
+function handleAddButtonClick(section) {
+  addFieldSet(section);
+
+  // Update field count in localStorage
+  const currentCount = getFieldCount(section);
+  setFieldCount(section, currentCount + 1);
+}
+
+// Retrieve template and container elements for a section
+function getSectionElements(section) {
+  const template = document.querySelector(`.maincontainer[name="${section}"] .subframe`);
+  const container = document.querySelector(`.maincontainer[name="${section}"] .mainframe`);
+
+  if (!template || !container) {
+      console.warn(`Unknown section: ${section}`);
+      return null;
+  }
+
+  return { template, container };
+}
+
+// Add a new field set to the section
+function addFieldSet(section) {
+  const elements = getSectionElements(section);
+  if (!elements) return;
+
+  const { template, container } = elements;
+  const newFieldSet = template.cloneNode(true);
+
+  // Clear inputs and adjust name attributes
+  newFieldSet.querySelectorAll('input, textarea, select').forEach(input => {
+      input.value = '';
+      const index = container.querySelectorAll('.subframe').length;
+      if (input.name) {
+          input.name = input.name.replace(/\[\d+\]/, `[${index}]`);
+      }
+  });
+
+  newFieldSet.style.display = 'flex'; // Ensure it's visible
+  container.appendChild(newFieldSet);
+}
 
 
 //이미지 추가하는 함수임

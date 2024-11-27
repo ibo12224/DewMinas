@@ -4,9 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log(allData)
     // 데이터가 없으면 바로 종료
     if (!allData) return;
-
     const portfolioContainer = document.querySelector(".main-container[name='portfolio-container']");
-    console.log(allData);
     // Intro 섹션 생성
     function createIntroSection(data) {
         const introContainer = document.createElement("div");

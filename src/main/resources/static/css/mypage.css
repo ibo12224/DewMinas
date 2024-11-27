@@ -136,21 +136,26 @@ font-weight: 400;
 line-height: var(--profile-text-size); /* 325% */
 
 }
-.fix-button{
+.fix-button {
     display: flex;
-width: 80px;
-height: 50px;
-justify-content: center;
-align-items: center;
-gap: var(--item-spacing-10, 10px);
-position: absolute;
-right: 176px;
-top: 20px;
-border-radius: 8px;
-background: #B3A8EF;
-border:0px;
-font-size: var(--profile-button-size);
+    width: 80px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    gap: var(--item-spacing-10, 10px);
+    position: absolute;
+    right: 176px;
+    top: 20px;
+    border-radius: 8px;
+    background: #B3A8EF;
+    border: 0px;
+    font-size: var(--profile-button-size);
+    text-decoration: none; /* 링크 스타일 제거 */
+    color: #000000; /* 기본 텍스트 색상 */
+
+
 }
+
 .delete-button{
     display: flex;
 width: 80px;
