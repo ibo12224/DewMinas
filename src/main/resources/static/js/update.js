@@ -2,20 +2,59 @@
 
 // 페이지가 처음 로드될 때만 populateData를 실행하고 다시 로드되지 않게 하는 코드
 window.onload = function() {
-
+  if(!localStorage.getItem("populateDataExecuted")){
     // 이후 이 코드가 다시 실행되지 않도록 로컬 스토리지에 값을 저장
     localStorage.setItem('populateDataExecuted', 'true');
     const savedData = localStorage.getItem("portfolioData");
-    console.log(savedData);
     if (savedData) {
       const parsedData = JSON.parse(savedData); // 저장된 데이터를 객체로 변환
       console.log(parsedData);
       populateData(parsedData[0]); // 데이터를 채우기
     }
+  }
 };
 
+document.addEventListener('click', function(event) {
+  const wrapper = event.target.closest('.image-wrapper');
+  const container = wrapper.closest('.maincontainer');
+  const section = container.getAttribute('name');
+
+  if (wrapper && wrapper.parentElement) {
+    const fieldCountKey = `fieldCount-${section}`;
+    const currentCount = parseInt(localStorage.getItem(fieldCountKey)) || 0;
+    localStorage.setItem(fieldCountKey, currentCount - 1);
+    wrapper.parentElement.remove();
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  window.addEventListener("beforeunload", beforeUnloadHandler);
+// 모든 버튼의 상태 복원
+ document.querySelectorAll('.toggle-button').forEach(restoreSectionState);
+
+// 버튼 클릭 이벤트 리스너 등록
+ document.addEventListener('click', handleToggleButtonClick);
+ const savedImageUrl = localStorage.getItem('imageUrl');
+ if (savedImageUrl) {
+   const imageContainer = document.querySelector('.image-container');
+   imageContainer.style.backgroundImage = `url(${savedImageUrl})`;
+ }
+});
 
 
+
+document.addEventListener('click', function(event) {
+ const wrapper = event.target.closest('.image-wrapper');
+ const container = wrapper.closest('.maincontainer');
+ const section = container.getAttribute('name');
+
+ if (wrapper && wrapper.parentElement) {
+   const fieldCountKey = `fieldCount-${section}`;
+   const currentCount = parseInt(localStorage.getItem(fieldCountKey)) || 0;
+   localStorage.setItem(fieldCountKey, currentCount - 1);
+   wrapper.parentElement.remove();
+ }
+});
 function populateData(data) {
   // 인적사항
 
