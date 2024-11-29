@@ -129,7 +129,7 @@ window.onload = async () => {
         const portfolioData = await fetchPortfolioData();   
         localStorage.setItem("portfolioData", exportfolioData);
         const parsedData = JSON.parse(exportfolioData); //테스트 끝나고 ex제거
-        console.log(parsedData)
+        console.log(parsedData);
         //형태를 잘 보고 배열로 한번 감싸져있을 수 있음
         renderPortfolio( parsedData ?  parsedData[0] : null);
 
@@ -206,37 +206,6 @@ async function deletePortfolioFromServer(id) {
 }
 
 
-
-
-// 수정 및 저장 버튼 설정
-function setupEditAndSaveButtons() {
-    const editButton = document.getElementById("edit");
-    const saveButton = document.getElementById("save");
-    const inputs = document.querySelectorAll(".profile-input");
-
-    // 수정 버튼 클릭: input 활성화
-    editButton.addEventListener("click", () => {
-        inputs.forEach(input => (input.disabled = false));
-        toggleButtonVisibility(editButton, saveButton);
-    });
-
-    // 저장 버튼 클릭: input 비활성화 및 데이터 저장
-    saveButton.addEventListener("click", () => {
-        const formData = {};
-        inputs.forEach(input => {
-            formData[input.name] = input.value;
-            input.disabled = true;
-        });
-        console.log("저장된 데이터:", JSON.stringify(formData));
-        toggleButtonVisibility(saveButton, editButton);
-    });
-}
-
-// 버튼의 가시성 전환
-function toggleButtonVisibility(hideButton, showButton) {
-    hideButton.style.display = "none";
-    showButton.style.display = "inline";
-}
 
 
 

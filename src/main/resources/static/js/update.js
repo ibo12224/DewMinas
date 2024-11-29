@@ -2,35 +2,27 @@
 
 // 페이지가 처음 로드될 때만 populateData를 실행하고 다시 로드되지 않게 하는 코드
 window.onload = function() {
-  if (!localStorage.getItem('populateDataExecuted')) {
+
     // 이후 이 코드가 다시 실행되지 않도록 로컬 스토리지에 값을 저장
     localStorage.setItem('populateDataExecuted', 'true');
     const savedData = localStorage.getItem("portfolioData");
+    console.log(savedData);
     if (savedData) {
       const parsedData = JSON.parse(savedData); // 저장된 데이터를 객체로 변환
       console.log(parsedData);
       populateData(parsedData[0]); // 데이터를 채우기
     }
-  }
 };
 
 
 
 function populateData(data) {
   // 인적사항
-  if (data.personal) {
-    const personal = data.personal;
-    document.querySelector('textarea[name="desiredPosition"]').value = personal.desiredPosition || '';
-    if (personal.image) {
-      // 사진 추가 부분
-      const imageInput = document.querySelector('#imageInput');
-      const imageContainer = document.querySelector('.image-container');
-      const imgElement = document.createElement('img');
-      imgElement.src = personal.image;
-      imgElement.alt = 'Profile Image';
-      imageContainer.appendChild(imgElement);
-    }
-  }
+
+
+    document.querySelector('textarea[name="desiredPosition"]').value = data.desiredPosition || '';
+
+
 
   // 학력
   if (data.educations) {
