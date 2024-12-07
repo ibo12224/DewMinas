@@ -26,7 +26,7 @@ public class Resume {
 
     //Owner와 phoneNumber는 고정값. - 수정 페이지에서 제공하지 않음.
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="owner_email")
+    @JoinColumn(name="owner_id")
     private User owner;
 
     @Column(name = "desired_position")
