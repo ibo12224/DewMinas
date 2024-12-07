@@ -179,9 +179,7 @@ font-size: var(--profile-button-size);
     background: var(--profile-frame-color);
 
 }
-    pointer-events: none;
 
-}
 .project-plus-button{
     position: relative;
     height: 60px;
