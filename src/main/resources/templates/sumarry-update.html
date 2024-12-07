@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="../static/css/globals.css" />
+  <link rel="stylesheet" href="../static/css/styleguide.css" />
+  <link rel="stylesheet" href="../static/css/project.css" />
+</head>
+<body>    
+    <div class="main-bar">
+        <img class="logo" src="../static/../static/img/logo.png"></img>
+
+        <div class="link-page">
+          <div class="link-text">개인회원</div>
+          <div class="vertical-divider"></div>
+          <div class="link-text">이력서 관리</div>
+        </div>
+    </div>
+    <div class="project-input-page">
+        <form class="form" id="projectForm">
+        <!-- 프로젝트 섹션 -->
+        <div class="project" id="projectSection">
+            <div class="head"><div class="heading">프로젝트</div></div>
+            <div class="div-2">
+            <div class="frame">
+                <div class="frame-2">
+                <label for="projectName" class="text-wrapper-2">프로젝트 명</label>
+                <input id="projectName" name="projectName" class="text-input" type="text" placeholder="프로젝트 명" />
+                </div>
+                <div class="frame-3">
+                <label for="projectDescription" class="text-wrapper-2">요약 설명</label>
+                <input id="projectDescription" name="projectDescription" class="text-input" type="text" placeholder="사용자의 편의를 위한 신세계 만들기" />
+                </div>
+                <div class="frame-4">
+                <label for="projectLink" class="text-wrapper-2">링크</label>
+                <input id="projectLink" name="projectLink" class="text-input" type="url" placeholder="https://github.com/moe-lee/DewMinas" />
+                </div>
+                <div class="frame-5">
+                <label for="projectSummary" class="text-wrapper-2">요약</label>
+                <textarea id="projectSummary" name="projectSummary" class="text-wrapper-4" placeholder="왜 제작, 어떻게"></textarea>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- 역할 섹션 -->
+        <div class="project" id="roleSection">
+            <div class="head"><div class="heading">역할</div></div>
+            <div class="div-2">
+            <div class="frame">
+                <div class="frame-6">
+                <label for="role" class="text-wrapper-2">역할</label>
+                <input id="role" name="role" class="text-input" type="text" placeholder="웹 개발" />
+                </div>
+                <div class="frame-7">
+                <label for="roleDescription" class="text-wrapper-2">맡은 일</label>
+                <textarea id="roleDescription" name="roleDescription" class="text-wrapper-4" placeholder="내가 어떤 페이지를 작성했는지, 거기서 어떤 기능을 작성했는지"></textarea>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- 기술 섹션 -->
+        <div class="project" id="technologySection">
+            <div class="head"><div class="heading">기술</div></div>
+            <div class="div-2">
+                <div class="frame">
+                    <div class="frame-8">
+                    <label for="usedTech" class="text-wrapper-2">사용된 기술</label>
+                    <input id="usedTech" name="usedTech" class="text-input" type="text" placeholder="Java, Python, SQL" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 문제 해결 기록 -->
+        <div class="maincontainer" id="problemSection" name="problemSection">
+            <div class="head"><div class="heading">문제 해결 기록</div></div>
+            <div class="mainframe" >
+                <div class="subframe">
+                    <div class="frame-9">
+                    <label for="problem" class="text-wrapper-2">문제 설명</label>
+                    <input id="problem" name="problem" class="text-input" type="text" placeholder="서버 이상" />
+                    </div>
+                    <div class="frame-9">
+                    <label for="solution" class="text-wrapper-2">해결 방법</label>
+                    <input id="solution" name="solution" class="text-input" type="text" placeholder="대문자와 소문자 구별" />
+                    </div>
+                    <div class="frame-9">
+                    <label for="result" class="text-wrapper-2">결과</label>
+                    <input id="result" name="result" class="text-input" type="text" placeholder="성공적으로 복구" />
+                    </div>
+                    <div class="frame-9">
+                    <label for="lesson" class="text-wrapper-2">배운 점</label>
+                    <input id="lesson" name="lesson" class="text-input" type="text" placeholder="서버 로그 중요성" />
+                    </div>
+                </div>
+            </div>
+            <button class="plusbutton" data-section="problemSection">
+                <img class="image-6" src="../static/img/image-26.png" />
+            </button>
+        </div>
+        </form>      
+
+        <div class="container">
+            <div class="container_heading">프로젝트 항목</div>
+            <!-- 토글 버튼 수정: class로 변경 -->
+            <button class="listframe">
+                <img class="list-image" src="../static/img/image-4.png" />
+                <div class="list-text">프로젝트</div>
+            </button>
+            <button class="listframe">
+                <img class="list-image" src="../static/img/image-4.png" />
+                <div class="list-text">역활</div>
+
+            </button>
+            <button class="listframe">
+                <img class="list-image" src="../static/img/image-4.png" />
+                <div class="list-text">기술</div>
+
+            </button>
+            <button class="listframe">
+                <img class="list-image" src="../static/img/image-4.png" />
+                <div class="list-text">문제해결 기록</div>
+
+            </button>
+            <button class="background-border" name="preview-button" id="preview-button">
+                <a class="list-button" id="preview" href="./portpolio_preview.html">미리보기</a>
+            </button>
+        </div>
+    </div>
+  
+  <script src="../static/js/project_input.js"></script>
+    <script src="../static/js/input_function.js"></script>
+</body>
+</html>

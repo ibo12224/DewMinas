@@ -52,14 +52,18 @@ const StorageKeys = {
     document.querySelectorAll('.plusbutton').forEach(button => {
         const section = button.getAttribute('data-section');
         const savedFieldCount = getFieldCount(section);
-  
+        
         // Load the saved field sets when the page loads
         for (let i = 0; i < savedFieldCount; i++) {
             addFieldSet(section);
         }
   
         // Attach click event listener to each button
-        button.addEventListener('click', () => handleAddButtonClick(section));
+        button.addEventListener('click', (event) =>{
+          handleAddButtonClick(section)
+          event.preventDefault();
+        
+        } );
     });
   });
   
