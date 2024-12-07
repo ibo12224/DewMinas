@@ -42,7 +42,7 @@ public class ResumeViewController {
         model.addAttribute("nickname", owner.getNickname());
         model.addAttribute("phoneNumber", owner.getPhoneNumber());
         model.addAttribute("resume", resumeSummary);
-        return "mypage";
+        return "profile";
     }
 
     @GetMapping("/resume-update")
