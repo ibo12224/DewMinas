@@ -15,23 +15,23 @@
                 </div>
                 <div class="profile-frame">
                     <label class="profile-label">이름:</label>
-                    <input class="profile-input" name="nameKor" disabled>
+                    <input class="profile-input" name="nameKor" disabled th:value="${nameKor}">
                 </div>
                 <div class="profile-frame">
                     <label class="profile-label">영어 이름:</label>
-                    <input class="profile-input" name="nameEng" disabled>
+                    <input class="profile-input" name="nameEng" disabled th:value="${nameEng}">
                 </div>
                 <div class="profile-frame">
                     <label class="profile-label">닉네임:</label>
-                    <input class="profile-input" name="nickname" disabled>
+                    <input class="profile-input" name="nickname" disabled th:value="${nickname}">
                 </div>
                 <div class="profile-frame">
                     <label class="profile-label">이메일:</label>
-                    <input class="profile-input" name="email" disabled>
+                    <input class="profile-input" name="email" id="emailBox" disabled th:value="${email}">
                 </div>
                 <div class="profile-frame">
                     <label class="profile-label">전화번호:</label>
-                    <input class="profile-input" name="phoneNumber" disabled>
+                    <input class="profile-input" name="phoneNumber" disabled th:value="${phoneNumber}">
                 </div>
             </div>
         </div>
@@ -42,6 +42,16 @@
                     <div class="head-text">이력서</div>
                 </div>
                 <div class="portfolio-frame">
+                    <div th:if="${resume} != null" class="portfolio-fame">
+                        <label  class="portfolio-text-1" name="desiredPosition" th:text="${resume.desiredPosition}"></label>
+                        <label class="portfolio-text-2"  th:text="|created at : ${#temporals.format(resume.createdAt, 'yyyy-MM-dd')}|"></label>
+                        <label class="portfolio-text-2" th:text="|last update : ${#temporals.format(resume.updatedAt, 'yyyy-MM-dd')}|"></label>
+                        <button class="fix-button" id="r-fix-button">수정</button>
+                        <button class="delete-button" id="r-delete-button">삭제</button>
+                    </div>
+                    <button th:if="${resume} == null" class="plus-button" id="resumeAddButton" style="border:none;">
+                        <img class="portfolio-button" src="/img/portfolio-plus.png" href="input.html" alt="Add Portfolio">
+                    </button>
                     <a  class="plus-button" href="./resume-update.html" style="display: none;">
                         <img class="plus-image" src="../static/img/portfolio-plus.png" alt="Add Portfolio">
                     </a>
@@ -54,11 +64,6 @@
                 <div class="head"><div class="head-text">프로젝트</div></div>
                 <div class="portfolio-frame"> 
                     <div class="portfolio-fame" >
-                        <label class="portfolio-text-1" name="desiredPosition">Back-end developer</label>
-                        <label class="portfolio-text-2" >1</label>
-                        <label class="portfolio-text-2">1</label>
-                        <button class="fix-button" id="p-fix-button">수정</button>
-                        <button class="delete-button" id="p-delete-button">삭제</button>
                     </div>
                 </div>                    
                 <button class="project-plus-button" >
