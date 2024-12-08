@@ -149,7 +149,7 @@
   top: 40px; /* top에 px 단위를 추가 */
   left: 1400px; /* left에도 px 단위를 추가 */
   width: 240px;
-  height: 408px;
+  height: fit-content;
   background-color: white;
   } 
 
@@ -394,12 +394,7 @@ border-color: #dddddd;
   padding: 1px 94.08px 0px 94.06px;
   position: relative;
   background-color: #ffffff;
-  border-top-width: 1px;
-  border-top-style: solid;
-  border-right-width: 1px;
-  border-right-style: solid;
-  border-left-width: 1px;
-  border-left-style: solid;
+  border:1px;
   border-color: #eeeeee;
 }
 
@@ -554,8 +549,6 @@ border-color: #dddddd;
 
 .potopolio-input-page .div-2 {
   all: unset;
-
-
   position: relative;
   width: 210px;
   height: 25px;

@@ -126,3 +126,49 @@
 
   
 }
+.main-bar {
+  display: flex;
+  height: 35px;
+  padding: 0px 400px;
+  flex-direction: row;
+  align-items: flex-start;
+  align-self: stretch;
+  background: #FEF9FE;
+  gap:700px;
+}
+
+.logo{
+  width: 90px;
+  height: 35px;
+  position: sticky;
+  z-index: 9999;
+}
+.link-page {
+  display: inline-flex;
+  align-items: flex-start;
+  position: relative;
+  flex: 0 0 auto;
+  flex-direction: row;
+  gap:5px;
+}
+.link-text {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: var(--www-jobkorea-co-kr-semantic-link-font-family);
+  font-weight: var(--www-jobkorea-co-kr-semantic-link-font-weight);
+  color: #666666;
+  font-size: var(--www-jobkorea-co-kr-semantic-link-font-size);
+  letter-spacing: var(--www-jobkorea-co-kr-semantic-link-letter-spacing);
+  line-height: var(--www-jobkorea-co-kr-semantic-link-line-height);
+  white-space: nowrap;
+  font-style: var(--www-jobkorea-co-kr-semantic-link-font-style);
+}
+.vertical-divider {
+  position: relative;
+  width: 1px;
+  height: 13px;
+  top: 10px;
+  left: 0;
+  background-color: #979797;
+}

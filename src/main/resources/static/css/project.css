@@ -1,0 +1,780 @@
+body{
+    gap:0px;
+}
+
+.project-input-page .mainframe {
+    display: flex;
+    flex-direction: column;
+    width: 940px;
+    align-items: flex-start;
+    padding: 1px;
+    position: relative;
+    flex: 0 0 auto;
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: var(--wwwjobkoreacokrmystic);
+}
+.sk .mainframe {
+    display: flex;
+    flex-direction: row; /* 요소들을 가로 방향으로 배치 */
+    flex-wrap: wrap; /* 요소가 칸을 넘어가면 다음 줄로 내려감 */
+    width: 940px;
+    align-items: flex-start; /* 각 줄에서 세로 방향으로 시작 지점 정렬 */
+    padding: 1px;
+    position: relative;
+    flex: 0 0 auto;
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: var(--wwwjobkoreacokrmystic);
+}
+
+.project-input-page .subframe {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1536px;
+    align-items: center;
+    gap: 10px 10px;
+    padding: 20px 40px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+    z-index: 1;
+}
+.sk .subframe {
+    display: flex;
+    flex-wrap: wrap; /* 자식 요소가 넘칠 경우 줄바꿈 */
+    align-items: center;
+    gap: 10px 10px; /* 자식 요소 간의 간격 */
+    padding: 20px 40px;
+    position: relative;
+    width: auto; /* 자식 요소의 크기에 따라 컨테이너 크기를 자동으로 조정 */
+    max-width: 1536px; /* 최대 너비 제한 */
+    flex: 0 0 auto;
+    z-index: 1;
+}
+
+.project-input-page {
+    background-color: #e8ecef;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+
+  }
+  
+
+.project-input-page .background {
+    display: flex;
+    flex-direction: column;
+    width: 1440px;
+    height: 35px;
+    align-items: center;
+    padding: 0px 351.5px 1px;
+    position: relative;
+    background-color: #ffffff;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-color: var(--wwwjobkoreacokrgallery);
+}
+
+
+
+.project-input-page .link {
+    display: flex;
+    flex-direction: column;
+    width: 74px;
+    align-items: flex-start;
+    position: absolute;
+    top: 2px;
+    left: 0;
+}
+
+.project-input-page .logo-jobkorea-png {
+    position: relative;
+    max-width: 74px;
+    width: 74px;
+    height: 29px;
+    background-image: url(./img/logo-jobkorea-png.png);
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.project-input-page .div-wrapper {
+    display: inline-flex;
+    align-items: flex-start;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.project-input-page .text-wrapper {
+    position: relative;
+    width: fit-content;
+    margin-top: -1.00px;
+    color: #666666;
+    font-size: var(--www-jobkorea-co-kr-semantic-link-font-size);
+    line-height: var(--www-jobkorea-co-kr-semantic-link-line-height);
+    white-space: nowrap;
+    font-family: var(--www-jobkorea-co-kr-semantic-link-font-family);
+    font-weight: var(--www-jobkorea-co-kr-semantic-link-font-weight);
+    letter-spacing: var(--www-jobkorea-co-kr-semantic-link-letter-spacing);
+    font-style: var(--www-jobkorea-co-kr-semantic-link-font-style);
+}
+
+.project-input-page .div {
+    display: inline-flex;
+    align-items: flex-start;
+    padding: 0px 0px 0px 12px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.project-input-page .vertical-divider {
+    position: absolute;
+    width: 1px;
+    height: 11px;
+    top: 10px;
+    left: 0;
+    background-color: #dddddd;
+}
+
+.project-input-page .form {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 0px 1px 0px;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.project-input-page .project {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    flex: 0 0 auto;
+}
+.project-input-page .maincontainer {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    flex: 0 0 auto;
+}
+.project-input-page .head {
+    position: relative;
+    width: 936px;
+    height: 40px;
+}
+
+.project-input-page .heading {
+    position: absolute;
+    width: 243px;
+    height: 30px;
+    top: 2px;
+    left: 0;
+    font-family: var(--www-jobkorea-co-kr-semantic-heading-2-font-family);
+    font-weight: var(--www-jobkorea-co-kr-semantic-heading-2-font-weight);
+    color: #333333;
+    font-size: var(--www-jobkorea-co-kr-semantic-heading-2-font-size);
+    letter-spacing: var(--www-jobkorea-co-kr-semantic-heading-2-letter-spacing);
+    line-height: var(--www-jobkorea-co-kr-semantic-heading-2-line-height);
+    white-space: nowrap;
+    font-style: var(--www-jobkorea-co-kr-semantic-heading-2-font-style);
+}
+
+.project-input-page .div-2 {
+    display: flex;
+    flex-direction: column;
+    width: 940px;
+    align-items: flex-start;
+    padding: 1px;
+    position: relative;
+    flex: 0 0 auto;
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: var(--wwwjobkoreacokrmystic);
+}
+
+.project-input-page .frame {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1536px;
+    gap: 10px 10px;
+    padding: 20px 40px;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+    align-items: center;
+    position: relative;
+}
+
+.project-input-page .frame-2 {
+    display: flex;
+    flex-direction: column;
+    width: 213px;
+    height: 79px;
+    gap: 10px;
+    padding: 5px;
+    border: 1px solid;
+    border-color: #dddddd;
+    align-items: center;
+    position: relative;
+}
+
+.project-input-page .text-wrapper-2 {
+    position: relative;
+    align-self: stretch;
+    height: 13px;
+    margin-top: -1.00px;
+    color: #a8a8a8;
+    font-size: 11px;
+    line-height: 16.5px;
+    white-space: nowrap;
+    font-family: "Roboto-Regular", Helvetica;
+    font-weight: 400;
+    letter-spacing: 0;
+    
+}
+
+.project-input-page .text-input {
+    font-weight: 400;
+    color: #000000;  /* 기본 폰트 색상 검정 */
+    font-size: 15px;
+    text-align: left;
+    line-height: 18px;
+    position: absolute;
+    top:20px;
+    left: 10px;
+    width: 95%;  /* 고정 너비 */
+    height: 35px; /* 고정 높이 */
+    margin-top: 0px;
+    font-family: "Roboto", Helvetica;
+    letter-spacing: 0;
+    white-space: nowrap;
+    resize: none;  /* 크기 조절 불가 */
+    overflow: hidden; /* 스크롤 비활성화 (내용이 넘칠 경우) */
+    border: none; /* 테두리 제거 */
+    outline: none; /* 클릭 시 테두리 보이지 않게 설정 */
+    background-color: transparent; /* 배경 투명하게 설정 */
+    caret-color: #000000; /* 커서 색상을 검정으로 설정 */
+  }
+input::placeholder {
+    color: #a8a8a8;;  /* 기본 안내 텍스트는 회색 */
+    font-weight: 400; /* 안내 텍스트는 얇게 */
+    opacity: 0.5;
+}
+
+
+.project-input-page .frame-3 {
+    display: flex;
+    flex-direction: column;
+    width: 445px;
+    height: 79px;
+    gap: 10px;
+    padding: 5px;
+    border: 1px solid;
+    border-color: #dddddd;
+    align-items: center;
+    position: relative;
+}
+
+.project-input-page .frame-4 {
+    display: flex;
+    flex-direction: column;
+    width: 668px;
+    height: 79px;
+    gap: 10px;
+    padding: 5px;
+    border: 1px solid;
+    border-color: #dddddd;
+    align-items: center;
+    position: relative;
+}
+
+.project-input-page .frame-5 {
+    display: flex;
+    flex-direction: column;
+    width: 858px;
+    height: 227px;
+    gap: 10px;
+    padding: 5px;
+    border: 1px solid;
+    border-color: #dddddd;
+    align-items: center;
+    position: relative;
+}
+
+.project-input-page .text-wrapper-4 {
+    font-weight: 400;
+    color: #000000;  /* 기본 폰트 색상 검정 */
+    font-size: 15px;
+    text-align: left;
+    line-height: 18px;
+    position: absolute;
+    top: 25px;
+    left: 10px;
+    width: 95%;/* 너비는 위치를 고려해 조정 */
+    height: 80%; /* 최대 높이: position 값에서 뺀 높이 기준 - 5px */
+    margin-top: 0px;
+    font-family: "Roboto", Helvetica;
+    letter-spacing: 0;
+    resize: none;  /* 크기 조절 불가 */
+    overflow-y: auto; /* 세로 스크롤 자동 활성화 (넘칠 경우만) */
+    border: transparent; /* 테두리 제거 */
+    outline: transparent; /* 클릭 시 테두리 보이지 않게 설정 */
+    background-color: transparent; /* 배경 투명하게 설정 */
+    caret-color: #000000; /* 커서 색상을 검정으로 설정 */
+    white-space: pre-wrap; /* 줄바꿈 지원 */
+    word-wrap: break-word; /* 단어가 넘칠 경우 자동 줄바꿈 */
+    padding-bottom: 10px; /* 오른쪽 여백 */
+  }
+  textarea::placeholder {
+    color: #a8a8a8;;  /* 기본 안내 텍스트는 회색 */
+    font-weight: 400; /* 안내 텍스트는 얇게 */
+    opacity: 0.5;
+  }
+.project-input-page .button {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    top: 0;
+    left: 903px;
+}
+
+.project-input-page .border {
+    top: 18px;
+    left: 728px;
+    display: flex;
+    flex-direction: column;
+    width: 170px;
+    height: 170px;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 47px 39px;
+    position: absolute;
+    border: 1px solid;
+    border-color: #dddddd;
+}
+
+.project-input-page .image {
+    position: relative;
+    width: 16px;
+    height: 16px;
+}
+
+.project-input-page .text-wrapper-5 {
+    position: relative;
+    align-self: stretch;
+    height: 21px;
+    font-family: "Roboto-Regular", Helvetica;
+    font-weight: 400;
+    color: #999999;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 21px;
+    white-space: nowrap;
+}
+
+.project-input-page .frame-6 {
+    display: flex;
+    flex-direction: column;
+    width: 859px;
+    height: 79px;
+    gap: 10px;
+    padding: 5px;
+    margin-right: -1.00px;
+    border: 1px solid;
+    border-color: #dddddd;
+    align-items: center;
+    position: relative;
+}
+
+.project-input-page .frame-7 {
+    display: flex;
+    flex-direction: column;
+    width: 859px;
+    height: 229px;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    position: relative;
+    margin-right: -1.00px;
+    border: 1px solid;
+    border-color: #dddddd;
+}
+
+.project-input-page .p {
+    position: relative;
+    flex: 1;
+    align-self: stretch;
+    color: #a8a8a8;
+    font-size: 20px;
+    line-height: 16.5px;
+    font-family: "Roboto-Regular", Helvetica;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.project-input-page .frame-8 {
+    display: flex;
+    flex-direction: column;
+    width: 185px;
+    height: 79px;
+    gap: 10px;
+    padding: 5px;
+    border: 1px solid;
+    border-color: #dddddd;
+    align-items: center;
+    position: relative;
+}
+
+.project-input-page .button-2 {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    width: 219px;
+    height: 79px;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 10px;
+    position: relative;
+    border: 1px solid;
+    border-color: #e6e6e6;
+}
+
+.project-input-page .img {
+    position: relative;
+    width: 20px;
+    height: 20px;
+}
+
+.project-input-page .text-wrapper-6 {
+    position: relative;
+    width: 67px;
+    height: 57px;
+    color: #000000;
+    font-size: 16px;
+    line-height: 18px;
+    font-family: "Roboto-Regular", Helvetica;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+.project-input-page .image-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 0;
+    left: 903px;
+}
+
+.project-input-page .image-2 {
+    position: relative;
+    width: 35px;
+    height: 35px;
+}
+
+.project-input-page .container-2 {
+    position: relative;
+    width: 940px;
+    flex: 0 0 auto;
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: var(--wwwjobkoreacokrmystic);
+}
+
+.project-input-page .border-2 {
+    top: 15px;
+    left: 31px;
+    display: flex;
+    flex-direction: column;
+    width: 170px;
+    height: 170px;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 47px 39px;
+    position: absolute;
+    border: 1px solid;
+    border-color: #dddddd;
+}
+
+.project-input-page .container-3 {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1536px;
+    align-items: center;
+    gap: 10px 10px;
+    padding: 20px 40px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+    z-index: 1;
+}
+
+.project-input-page .frame-9 {
+    display: flex;
+    flex-direction: column;
+    width: 838px;
+    height: 79px;
+    gap: 10px;
+    padding: 5px;
+    border: 1px solid;
+    border-color: #dddddd;
+    align-items: center;
+    position: relative;
+}
+
+.project-input-page .frame-10 {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    position: relative;
+}
+
+.project-input-page .frame-11 {
+    display: flex;
+    flex-direction: column;
+    width: 213px;
+    height: 79px;
+    gap: 10px;
+    padding: 5px;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-color: #dddddd;
+    align-items: center;
+    position: relative;
+}
+
+.project-input-page .button-3 {
+    all: unset;
+    box-sizing: border-box;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    height: 50px;
+    z-index: 0;
+    border-top-width: 0.5px;
+    border-top-style: solid;
+    border-color: #c5acac;
+}
+
+.project-input-page .image-3 {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 16px;
+    left: 442px;
+}
+
+.project-input-page .text-wrapper-7 {
+    position: absolute;
+    width: 28px;
+    height: 48px;
+    top: 0;
+    left: 468px;
+    color: #666666;
+    font-size: var(--www-jobkorea-co-kr-semantic-button-font-size);
+    line-height: var(--www-jobkorea-co-kr-semantic-button-line-height);
+    white-space: nowrap;
+    font-family: var(--www-jobkorea-co-kr-semantic-button-font-family);
+    font-weight: var(--www-jobkorea-co-kr-semantic-button-font-weight);
+    letter-spacing: var(--www-jobkorea-co-kr-semantic-button-letter-spacing);
+    font-style: var(--www-jobkorea-co-kr-semantic-button-font-style);
+}
+/* 컨테이너 스타일링 */
+.container {
+    position: sticky;
+    top: 40px;
+    left: 1400px;
+    width: 240px;
+    height: fit-content;
+    background-color: white;
+  
+    /* Flexbox 속성으로 자식 요소를 중앙 정렬 */
+    display: flex;
+    flex-direction: column; /* 요소들을 세로 방향으로 배치 */
+    align-items: center; /* 좌우 중앙 정렬 */
+    justify-content: center; /* 상하 중앙 정렬 */
+    gap:5px;
+
+  }
+  
+  /* 컨테이너 헤딩 스타일링 */
+  .container_heading {
+    position: relative;
+    width: 90%;
+    height: 60px;
+    border-bottom: 0.5px solid rgb(201, 201, 201);
+
+    padding:20px 0px;
+
+  }
+  
+
+/* 리스트 버튼 스타일링 */
+.listframe {
+    all: unset;
+    position: relative;
+    width: 90%; /* 부모 너비 90% 활용 */
+    height: 25px;
+    display: flex; /* 버튼 내용 중앙 배치 */
+    flex-direction: row; /* 요소들을 가로로 배치 */
+    gap: 10px; /* 요소 간 간격 */
+    margin: 5px 0; /* 버튼 간격 */
+    
+    /* 자식 요소들을 높낮이 중앙 고정 */
+    align-items: center; 
+  }
+  
+  
+  /* 버튼 내 링크 요소 스타일링 */
+  .link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* 버튼 링크 스타일 */
+  .button {
+    display: block;
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+  }
+
+.list-text {
+    position: relative;
+    width: fit-content;
+    font-family: "Roboto", Helvetica;
+    font-weight: 400;
+    color: #002aff;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 21px;
+    white-space: nowrap;
+  }
+.list-image {
+    position: relative;
+    width: 22px;
+    height: 17px;
+    top: -2px;
+    left: 0px;
+    opacity: 1;
+  }
+.background-border {
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    height: 51px;
+    align-items: center;
+    padding: 1px 94.08px 0px 94.06px;
+    position: relative;
+    background-color: #ffffff;
+    border: 0px solid #ffffff;
+    border-top:0.5px solid rgb(156, 156, 156);
+
+  }
+.list-button {
+    all: unset;
+    box-sizing: border-box;
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    margin-left: -0.07px;
+    margin-right: -0.07px;
+    font-family: "Roboto", Helvetica;
+    font-weight: 400;
+    color: #333333;
+    font-size: 14.1px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 50px;
+    white-space: nowrap;
+  }
+  
+  .plusbutton {
+    all: unset;
+    box-sizing: border-box;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    height: 50px;
+    top: -1px;
+    border-top: 0.5px solid;
+    border-color: #eeeeee;
+    z-index: 0;
+    background-color: white;
+    order: 99;
+  
+    /* Flexbox 활성화 및 내부 요소 정렬 */
+    display: flex; /* Flexbox 사용 */
+    justify-content: center; /* 자식 요소 전체를 가로 중앙 정렬 */
+    align-items: center; /* 자식 요소 전체를 세로 중앙 정렬 */
+    flex-direction: row; /* 자식 요소를 가로 방향으로 배치 */
+    gap: 20px; /* 요소 간 간격 설정 */
+  }
+  
+.image-6 {
+    position: relative;
+    width: 30px;
+    height: 30px;
+  }
+  
+.text-wrapper-7 {
+    position: relative;
+    font-family: "Roboto", Helvetica;
+    font-weight: 400;
+    color: #666666;
+    font-size: 15.1px;
+    letter-spacing: 0;
+    line-height: 48px;
+    white-space: nowrap;
+  }
+.image-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 35px;
+    height: 35px;
+    align-items: flex-start;
+    position: absolute;
+    top: 0;
+    left: 903px;
+  }
+.image-5 {
+    position: relative;
+    width: 35px;
+    height: 35px;
+  }
+.project-image{
+    position: absolute;
+right: 40px;
+top: 18px;
+display: flex;
+width: 170px;
+height: 170px;
+flex-direction: column;
+gap: 1px;
+border: 1px solid #DDD;
+}
+.image-input{
+    position: relative;
+    width: 150px;
+height: 150px;
+}
+.image-button{
+    position: relative;
+    width: 150px;
+height: 20px;
+}
