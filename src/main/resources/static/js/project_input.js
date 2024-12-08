@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener("beforeunload", beforeUnloadHandler);
   addFieldSet('problemSection');
 });
-
+//merge
 //이미지 추가하는 함수임
 document.getElementById('image-button').addEventListener('click', function() {
   document.getElementById('image-input').click();
