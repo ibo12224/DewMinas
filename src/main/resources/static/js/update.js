@@ -55,6 +55,7 @@ document.addEventListener('click', function(event) {
    wrapper.parentElement.remove();
  }
 });
+
 function populateData(data) {
   // 인적사항
 
