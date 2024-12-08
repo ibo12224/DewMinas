@@ -1,6 +1,7 @@
 body{
     gap:0px;
 }
+
 .project-input-page .mainframe {
     display: flex;
     flex-direction: column;
@@ -13,6 +14,20 @@ body{
     border: 1px solid;
     border-color: var(--wwwjobkoreacokrmystic);
 }
+.sk .mainframe {
+    display: flex;
+    flex-direction: row; /* 요소들을 가로 방향으로 배치 */
+    flex-wrap: wrap; /* 요소가 칸을 넘어가면 다음 줄로 내려감 */
+    width: 940px;
+    align-items: flex-start; /* 각 줄에서 세로 방향으로 시작 지점 정렬 */
+    padding: 1px;
+    position: relative;
+    flex: 0 0 auto;
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: var(--wwwjobkoreacokrmystic);
+}
+
 .project-input-page .subframe {
     display: flex;
     flex-wrap: wrap;
@@ -26,6 +41,19 @@ body{
     flex: 0 0 auto;
     z-index: 1;
 }
+.sk .subframe {
+    display: flex;
+    flex-wrap: wrap; /* 자식 요소가 넘칠 경우 줄바꿈 */
+    align-items: center;
+    gap: 10px 10px; /* 자식 요소 간의 간격 */
+    padding: 20px 40px;
+    position: relative;
+    width: auto; /* 자식 요소의 크기에 따라 컨테이너 크기를 자동으로 조정 */
+    max-width: 1536px; /* 최대 너비 제한 */
+    flex: 0 0 auto;
+    z-index: 1;
+}
+
 .project-input-page {
     background-color: #e8ecef;
     display: flex;
@@ -714,4 +742,39 @@ input::placeholder {
     line-height: 48px;
     white-space: nowrap;
   }
-  
+.image-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 35px;
+    height: 35px;
+    align-items: flex-start;
+    position: absolute;
+    top: 0;
+    left: 903px;
+  }
+.image-5 {
+    position: relative;
+    width: 35px;
+    height: 35px;
+  }
+.project-image{
+    position: absolute;
+right: 40px;
+top: 18px;
+display: flex;
+width: 170px;
+height: 170px;
+flex-direction: column;
+gap: 1px;
+border: 1px solid #DDD;
+}
+.image-input{
+    position: relative;
+    width: 150px;
+height: 150px;
+}
+.image-button{
+    position: relative;
+    width: 150px;
+height: 20px;
+}

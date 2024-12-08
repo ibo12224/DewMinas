@@ -1,4 +1,34 @@
-const allData = JSON.parse(localStorage.getItem('formData'));  // 저장된 데이터 가져오기
+let allData;
+try {
+    // localStorage에서 데이터 가져오기
+    allData = JSON.parse(localStorage.getItem('formData'));
+
+    // 데이터가 유효하지 않을 경우 예외 발생
+    if (!allData) {
+        throw new Error("localStorage에 'formData' 데이터가 없거나 값이 비어 있습니다.");
+    }
+
+    // 데이터가 정상적인 경우 콘솔 출력
+    console.log("전송할 데이터:", allData);
+
+} catch (error) {
+    // 오류 발생 시 콘솔에 출력
+    console.error("데이터 처리 중 오류 발생:", error.message);
+}
+
+// 저장 버튼 클릭 이벤트 핸들러
+document.getElementById('profile-save').addEventListener('click', function () {
+    // localStorage에서 데이터 가져오기
+    const allData = JSON.parse(localStorage.getItem('formData'));
+    
+    if (allData) {
+        // 콘솔에 출력
+        console.log("전송할 데이터:", allData);
+    } else {
+        // 데이터가 없는 경우
+        console.error("localStorage에 'formData' 데이터가 없습니다.");
+    }
+});
 
 document.addEventListener("DOMContentLoaded", function() {
     console.log(allData)

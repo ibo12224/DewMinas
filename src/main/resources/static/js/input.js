@@ -20,18 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     imageContainer.style.backgroundImage = `url(${savedImageUrl})`;
   }
 });
-
-
-
-document.addEventListener('click', function(event) {
-  const wrapper = event.target.closest('.image-wrapper');
-  const container = wrapper.closest('.maincontainer');
-  const section = container.getAttribute('name');
-
-  if (wrapper && wrapper.parentElement) {
-    const fieldCountKey = `fieldCount-${section}`;
-    const currentCount = parseInt(localStorage.getItem(fieldCountKey)) || 0;
-    localStorage.setItem(fieldCountKey, currentCount - 1);
-    wrapper.parentElement.remove();
-  }
+//이미지 추가하는 함수임
+document.getElementById('addImageBtn').addEventListener('click', function() {
+  document.getElementById('imageInput').click();
 });

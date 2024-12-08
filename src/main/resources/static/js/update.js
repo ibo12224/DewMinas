@@ -40,6 +40,10 @@ document.addEventListener('DOMContentLoaded', function() {
    imageContainer.style.backgroundImage = `url(${savedImageUrl})`;
  }
 });
+//이미지 추가하는 함수임
+document.getElementById('addImageBtn').addEventListener('click', function() {
+  document.getElementById('imageInput').click();
+});
 
 
 

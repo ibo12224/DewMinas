@@ -227,4 +227,15 @@ const StorageKeys = {
     event.returnValue = ""; // 경고 메시지 표시 (일부 브라우저만 지원)
     localStorage.clear(); // 페이지 닫힐 때 로컬 스토리지 초기화
   }
+  document.addEventListener('click', function(event) {
+    const wrapper = event.target.closest('.image-wrapper');
+    const container = wrapper.closest('.maincontainer');
+    const section = container.getAttribute('name');
   
+    if (wrapper && wrapper.parentElement) {
+      const fieldCountKey = `fieldCount-${section}`;
+      const currentCount = parseInt(localStorage.getItem(fieldCountKey)) || 0;
+      localStorage.setItem(fieldCountKey, currentCount - 1);
+      wrapper.parentElement.remove();
+    }
+  });

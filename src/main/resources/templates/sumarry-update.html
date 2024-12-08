@@ -39,6 +39,11 @@
                 <label for="projectSummary" class="text-wrapper-2">요약</label>
                 <textarea id="projectSummary" name="projectSummary" class="text-wrapper-4" placeholder="왜 제작, 어떻게"></textarea>
                 </div>
+                <div class="project-image">
+                    <img class="image-input" id="image-input" alt="이미지 추가"></img>
+                    <button class="image-button" id="image-button" type="button">이미지 추가</button>
+                </div>
+
             </div>
             </div>
         </div>
@@ -61,15 +66,20 @@
         </div>
 
         <!-- 기술 섹션 -->
-        <div class="project" id="technologySection">
+        <div class="maincontainer" id="technologySection" name="technologySection">
             <div class="head"><div class="heading">기술</div></div>
-            <div class="div-2">
-                <div class="frame">
+            <div class="sk">
+            <div class="mainframe">
+                <div class="subframe">
                     <div class="frame-8">
                     <label for="usedTech" class="text-wrapper-2">사용된 기술</label>
                     <input id="usedTech" name="usedTech" class="text-input" type="text" placeholder="Java, Python, SQL" />
                     </div>
                 </div>
+                <button class="plusbutton" data-section="technologySection">
+                    <img class="image-6" src="../static/img/image-26.png" />
+                </button>
+            </div>
             </div>
         </div>
 
@@ -77,7 +87,8 @@
         <div class="maincontainer" id="problemSection" name="problemSection">
             <div class="head"><div class="heading">문제 해결 기록</div></div>
             <div class="mainframe" >
-                <div class="subframe">
+                <div class="subframe" style="display: none;">
+                    <div class="image-wrapper"><img class="image-5" src="../static/img/image-27.png" /></div>
                     <div class="frame-9">
                     <label for="problem" class="text-wrapper-2">문제 설명</label>
                     <input id="problem" name="problem" class="text-input" type="text" placeholder="서버 이상" />
@@ -110,17 +121,17 @@
                 <div class="list-text">프로젝트</div>
             </button>
             <button class="listframe">
-                <img class="list-image" src="../static/img/image-4.png" />
+                <img class="list-image" src="../static/img/image-3.png" />
                 <div class="list-text">역활</div>
 
             </button>
             <button class="listframe">
-                <img class="list-image" src="../static/img/image-4.png" />
+                <img class="list-image" src="../static/img/image.png" />
                 <div class="list-text">기술</div>
 
             </button>
             <button class="listframe">
-                <img class="list-image" src="../static/img/image-4.png" />
+                <img class="list-image" src="../static/img/image-2.png" />
                 <div class="list-text">문제해결 기록</div>
 
             </button>
