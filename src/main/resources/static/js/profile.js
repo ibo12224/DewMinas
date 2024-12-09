@@ -21,3 +21,7 @@ if(resumeUpdateButton != null) {
     location=`/resume-update?email=${ownerEmail}`;
 });
 };
+
+document.getElementById("resumeBox").addEventListener("click", (ev) => {
+    location = `/resume?email=${ownerEmail}`;
+});
