@@ -1,6 +1,7 @@
 package me.leewonjun.dewminas.controllers;
 
 import lombok.RequiredArgsConstructor;
+import me.leewonjun.dewminas.domains.User;
 import me.leewonjun.dewminas.domains.of_resume.Resume;
 import me.leewonjun.dewminas.dto.client_dto.RegisterResumeRequest;
 import me.leewonjun.dewminas.dto.client_dto.ResumeResponse;
@@ -9,19 +10,21 @@ import me.leewonjun.dewminas.services.ResumeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Objects;
 
 @RequiredArgsConstructor
 @RestController
-public class ResumeApiController {
+public class ResumeApiController implements IUserInfoExtractor{
 
     @Autowired
     private final ResumeService resumeService;
 
-    @GetMapping("/api/resume/{email}")
-    public ResponseEntity<ResumeResponse> findResume(@PathVariable(name = "email") String email) {
+    @GetMapping("/api/resume")
+    public ResponseEntity<ResumeResponse> findResume() {
+        String email = this.getUsernameBySecurityContext();
         Resume resume = resumeService.findResume(email);
         // Null pointer Exception 발생
         Objects.requireNonNull(resume, ()->"No such resume +"+email);
@@ -37,8 +40,9 @@ public class ResumeApiController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @PutMapping("/api/resume/{id}")
-    public ResponseEntity<ResumeResponse> updateResume(@PathVariable(name = "id") Long id, @RequestBody UpdateResumeRequest request) {
+    @PutMapping("/api/resume")
+    public ResponseEntity<ResumeResponse> updateResume(@RequestBody UpdateResumeRequest request) {
+        long id = resumeService.findResume(this.getUsernameBySecurityContext()).getId();
         resumeService.updateResumeBeforeFlush(id, request);
         String ownerEmail = resumeService.getOwnerEmailById(id);
         ResumeResponse response = new ResumeResponse(resumeService.findResume(ownerEmail));
@@ -46,7 +50,8 @@ public class ResumeApiController {
     }
 
     @DeleteMapping("/api/resume")
-    public ResponseEntity<Object> deleteResume(@RequestParam("email") String email) {
+    public ResponseEntity<Object> deleteResume() {
+        String email = this.getUsernameBySecurityContext();
         resumeService.deleteResume(email);
         return ResponseEntity.status(HttpStatus.OK).build();
     }

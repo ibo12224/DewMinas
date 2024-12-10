@@ -32,4 +32,5 @@ public class SecurityApiController {
         return "redirect:/login";
 
     }
+
 }

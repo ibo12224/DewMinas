@@ -1,6 +1,7 @@
 package me.leewonjun.dewminas;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import me.leewonjun.dewminas.controllers.IUserInfoExtractor;
 import me.leewonjun.dewminas.domains.Project;
 import me.leewonjun.dewminas.domains.User;
 import me.leewonjun.dewminas.domains.of_resume.Resume;

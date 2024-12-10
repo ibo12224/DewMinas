@@ -6,6 +6,7 @@ import me.leewonjun.dewminas.dto.client_dto.ProjectResponse;
 import me.leewonjun.dewminas.dto.client_dto.RegisterProjectRequest;
 import me.leewonjun.dewminas.dto.client_dto.UpdateProjectRequest;
 import me.leewonjun.dewminas.services.ProjectService;
+import me.leewonjun.dewminas.services.ResumeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,10 +15,13 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequiredArgsConstructor
-public class ProjectApiController {
+public class ProjectApiController implements IUserInfoExtractor{
 
     @Autowired
     private final ProjectService projectService;
+
+    @Autowired
+    private final ResumeService resumeService;
 
     @GetMapping("/api/project")
     public ResponseEntity<ProjectResponse> findProject(
@@ -51,5 +55,10 @@ public class ProjectApiController {
     {
         projectService.deleteProject(projectId);
         return ResponseEntity.ok().build();
+    }
+
+    @Override
+    public long getResumeIdBySecurityContext() {
+        return resumeService.findResume(this.getUsernameBySecurityContext()).getId();
     }
 }

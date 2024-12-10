@@ -12,7 +12,7 @@ let callbackToUpdate = (ev)=> {
         },
         body: JSON.stringify({ email: `${ownerEmail}`})
         }).then(() => {
-            location = `/resume-update?email=${ownerEmail}`
+            location = `/resume-update`
         }
     )
 };
@@ -22,20 +22,21 @@ if(resumeAddButton != null) {
 
 if(document.getElementById("resumeBox")) {
     document.getElementById("resumeBox").addEventListener("click", (ev) => {
-        location = `/resume?email=${ownerEmail}`;
+        location = `/resume`;
     });
     resumeUpdateButton.addEventListener("click", (ev) => {
+        ev.stopPropagation();
         alert("이력서를 수정합니다.");
-        location=`/resume-update?email=${ownerEmail}`;
+        location=`/resume-update`;
     });
     document.getElementById("resumeDeleteButton").addEventListener("click", (ev) => {
         ev.stopPropagation();
         const userResponse = confirm('정말로 이력서를 삭제하시겠습니까?');
         if(!userResponse) return;
-        fetch(`/api/resume?email=${ownerEmail}`, {
+        fetch(`/api/resume`, {
             method :'DELETE'
         }).then((ev) => {
-            location = `/profile?email=${ownerEmail}`;
+            location = `/profile`;
         });
     });
 }

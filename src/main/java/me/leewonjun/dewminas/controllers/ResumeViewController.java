@@ -22,7 +22,7 @@ import java.util.List;
 @Getter
 @Setter
 @RequiredArgsConstructor
-public class ResumeViewController {
+public class ResumeViewController implements IUserInfoExtractor{
     @Autowired
     private final UserService userService;
     @Autowired
@@ -30,7 +30,7 @@ public class ResumeViewController {
 
     @GetMapping("/profile")
     public String getProfile(Model model) {
-        String email = ((User)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getEmail();
+        String email = this.getUsernameBySecurityContext();
         User owner = userService.findUser(email);
         ResumeSummary resumeSummary = null;
         try{
@@ -48,14 +48,16 @@ public class ResumeViewController {
     }
 
     @GetMapping("/resume-update")
-    public String updateResume(Model model, @RequestParam("email") String email) {
+    public String updateResume(Model model) {
+        String email = this.getUsernameBySecurityContext();
         Resume resume = resumeService.findResume(email);
         appendResumeSections(model, resume);
         return "resume-update";
     }
 
     @GetMapping("/resume")
-    public String showResume(@RequestParam("email") String email, Model model) {
+    public String showResume(Model model) {
+        String email = this.getUsernameBySecurityContext();
         User user = userService.findUser(email);
         Resume resume = resumeService.findResume(email);
         String phoneNumber = user.getPhoneNumber();

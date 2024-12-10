@@ -46,14 +46,17 @@ public class WebSecurityConfiguration {
                     // 로그인, 회원가입, 회원가입용 url을 제외한 url에 대해 인증을 요구함.
                     // 권한 부여는 이후 생각해볼 과제.
                     auth.requestMatchers(
-                            "/login", "/signup", "/user"
+                            "/login", "/signup", "/user", "/api/dupcheck"
                     )
                             .permitAll()
                             .anyRequest().authenticated();
                 })
                 .formLogin((formLogin)->{
                     // profile은 원래 요청 파라미터를 이용해 페이지를 보여줬으나, 이제 SecurityContext를 이용해서 보여줄 필요가 있다.
-                    formLogin.loginPage("/login").defaultSuccessUrl("/profile"); // AuthenticationSuccessHandler에 의해 DefaultSeccessUrl로 리다이렉트 된다.
+                    formLogin
+                            .loginPage("/login")
+                            .defaultSuccessUrl("/profile")
+                            .failureUrl("/login"); // AuthenticationSuccessHandler에 의해 DefaultSeccessUrl로 리다이렉트 된다.
                 })
                 .logout((logout) -> {
                     logout.logoutSuccessUrl("/login")

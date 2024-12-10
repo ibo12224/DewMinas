@@ -182,7 +182,7 @@ saveButton.addEventListener('click', (ev) => {
     let parsedData = parseResumeData();
     if(parsedData === "") return;
     let resumeId = document.getElementById("resumeId").value;
-    fetch(`/api/resume/${resumeId}`, {
+    fetch(`/api/resume`, {
         method : 'PUT',
         headers : {
             "Content-Type" : "application/json"
@@ -198,7 +198,7 @@ previewButton.addEventListener("click", (ev) => {
     let parsedData = parseResumeData();
         if(parsedData === "") return;
         let resumeId = document.getElementById("resumeId").value;
-        fetch(`/api/resume/${resumeId}`, {
+        fetch(`/api/resume`, {
             method : 'PUT',
             headers : {
                 "Content-Type" : "application/json"

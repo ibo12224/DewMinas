@@ -11,11 +11,12 @@
     <div class="portfolio">
         <div class="main-bar">
             <img class="logo" src="/img/logo.png"></img>
-            <button onclick="location.href='/logout'">로그아웃</button>
             <div class="link-page">
-              <a class="link-text" href="javascript:history.back()">수정</a>
-              <div class="vertical-divider"></div>
-              <div class="link-text" id="profile-save" style="cursor: pointer;">저장</div>
+                <a class="link-text" th:href="@{/logout}">로그아웃</a>
+                <div class="vertical-divider"></div>
+                <a class="link-text" th:href="@{/profile}">프로필</a>
+                <div class="vertical-divider"></div>
+                <a class="link-text" th:href="@{/resume-update}">수정하기</a>
             </div>
         </div>
 
@@ -149,5 +150,4 @@
         </div>
     </div>
 </body>
-    <script src="/js/resume.js"></script>
 </html>

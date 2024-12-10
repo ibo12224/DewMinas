@@ -28,7 +28,7 @@ public class User implements UserDetails
     @Column(name = "name_eng", nullable = false)
     private String nameEng;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
 
     @Column(name = "nickname")

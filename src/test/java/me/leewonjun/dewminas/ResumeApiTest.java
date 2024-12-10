@@ -122,10 +122,10 @@ public class ResumeApiTest {
         String pnum = "01012341111";
         User newUser = userRepository.save(User.builder().nameKor("이원준").nameEng("Lee WonJun").phoneNumber(pnum).email("mail@gmail.com").nickname("tester").password("1234").build());
         Resume newResume = resumeRepository.save(Resume.builder().owner(newUser).build());
-        String url = src+"/{email}";
+        String url = src;
 
         // when
-        ResultActions actions = mockMvc.perform(get(url, newUser.getEmail()).accept(MediaType.APPLICATION_JSON));
+        ResultActions actions = mockMvc.perform(get(url).accept(MediaType.APPLICATION_JSON));
 
         // then
         actions.andExpect(status().isOk());
@@ -139,7 +139,7 @@ public class ResumeApiTest {
     @Transactional
     public void appendInformation() throws Exception {
         // given : 유저 생성, 이력서 생성, 추가할 정보 생성
-        String url = src+"/{id}";
+        String url = src;
 
         String pnum = "01034422631";
         User owner = userRepository.save(User.builder().nameEng("Lee").phoneNumber(pnum).nameKor("이원준").nickname("tester").password("123").email("mail@gmail.com").build());
@@ -172,7 +172,7 @@ public class ResumeApiTest {
 
         UpdateResumeRequest request = new UpdateResumeRequest(desiredPos, eduSums, licenseSums, awardSums, acaSums, eduExpSums, workSums);
         // when
-        mockMvc.perform(put(url, resume.getId())
+        mockMvc.perform(put(url)
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .content(objectMapper.writeValueAsString(request))
                 .accept(MediaType.APPLICATION_JSON)
@@ -238,7 +238,7 @@ public class ResumeApiTest {
     @Transactional
     public void updateInformation() throws Exception {
         // given : 유저 생성, 이력서 생성, 추가할 정보 생성
-        String url = src+"/{id}";
+        String url = src;
 
         String pnum = "01034422631";
         User owner = userRepository.save(User.builder().nameEng("Lee").phoneNumber(pnum).nameKor("이원준").nickname("tester").password("123").email("mail@gmail.com").build());
@@ -271,7 +271,7 @@ public class ResumeApiTest {
 
         UpdateResumeRequest request = new UpdateResumeRequest(desiredPos, eduSums, licenseSums, awardSums, acaSums, eduExpSums, workSums);
         // when
-        mockMvc.perform(put(url, resume.getId())
+        mockMvc.perform(put(url)
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .content(objectMapper.writeValueAsString(request))
                 .accept(MediaType.APPLICATION_JSON)
@@ -312,7 +312,7 @@ public class ResumeApiTest {
     @Test
     public void deleteResumeTest()  throws Exception{
         // given : 유저 생성, 이력서 생성, 추가할 정보 생성
-        String url = src+"/{id}";
+        String url = src;
 
         String pnum = "01034422631";
         User owner = userRepository.save(User.builder().nameEng("Lee").phoneNumber(pnum).nameKor("이원준").nickname("tester").password("123").email("mail@gmail.com").build());
@@ -345,13 +345,13 @@ public class ResumeApiTest {
 
         UpdateResumeRequest request = new UpdateResumeRequest(desiredPos, eduSums, licenseSums, awardSums, acaSums, eduExpSums, workSums);
         // when
-        mockMvc.perform(put(url, resume.getId())
+        mockMvc.perform(put(url)
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .content(objectMapper.writeValueAsString(request))
                 .accept(MediaType.APPLICATION_JSON)
         ).andExpect(status().isOk());
         
-        mockMvc.perform(delete(url, owner.getEmail())).andExpect(status().isOk());
+        mockMvc.perform(delete(url)).andExpect(status().isOk());
 
         // then 모든 정보 삭제된 것을 검증한다.
         Assertions.assertThat(resumeRepository.count()).isZero();

@@ -36,4 +36,9 @@ public class UserService {
                 .build();
         return userRepository.save(newUser);
     }
+
+    public boolean validateUniqueness(String email) {
+        int count = userRepository.countByEmail(email);
+        return (count == 0);
+    }
 }
