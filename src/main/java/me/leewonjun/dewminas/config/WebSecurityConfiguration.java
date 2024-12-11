@@ -1,6 +1,5 @@
 package me.leewonjun.dewminas.config;
 
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import me.leewonjun.dewminas.services.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +12,9 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-
-import static org.springframework.boot.autoconfigure.security.servlet.PathRequest.toH2Console;
 
 @Configuration
 @EnableWebSecurity
@@ -34,7 +30,7 @@ public class WebSecurityConfiguration {
     public WebSecurityCustomizer configure() {
         return (web) -> {
             // web은 WebSecurity 클래스 인스턴스, h2콘솔과 정적파일 경로는 오픈. / 자바 스크립트 주입 공격에 취약함.
-            web.ignoring().requestMatchers(toH2Console())
+            web.ignoring()//.requestMatchers(toH2Console())
                     .requestMatchers(new AntPathRequestMatcher("/static/**"));
         };
     }

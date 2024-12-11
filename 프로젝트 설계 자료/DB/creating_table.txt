@@ -1,0 +1,215 @@
+create database dewminas;
+use dewminas;
+
+create table users(
+    id bigint not null AUTO_INCREMENT,
+    password varchar(1000) not null,
+    name_kor varchar(255) not null,
+    name_eng varchar(255) not null,
+    email varchar(255) not null unique,
+    nickname varchar(255) not null,
+    phone_number varchar(255) not null,
+    constraint pk_resume primary key(id)
+);
+
+create table resume_photos (
+    id bigint not null AUTO_INCREMENT,
+    url varchar(500) not null,
+    constraint pk_resume_photos primary key(id)
+);
+
+create table resumes (
+    id bigint not null AUTO_INCREMENT,
+    desired_position varchar(500),
+    created_at timestamp,
+    updated_at timestamp,
+    -- 외래키 속성
+    photo_id bigint,
+    owner_id bigint not null,
+    constraint pk_resume primary key(id),
+    constraint fk_resume_to_owner foreign key(owner_id) references users(id),
+    constraint fk_resume_to_resume_photo foreign key(photo_id) references resume_photos(id)
+);
+
+drop table educations;
+create table educations(
+    id bigint not null AUTO_INCREMENT,
+    type integer not null,
+    institution_name varchar(255) not null,
+    department_name varchar(255) not null,
+    degree varchar(255),
+    gpa double,
+    max_gpa double,
+    status integer,
+    from_date timestamp,
+    to_date timestamp,
+    to_now boolean not null,
+    resume_id bigint not null,
+    constraint pk_educations primary key(id),
+    constraint fk_education_to_resume foreign key(resume_id) references resumes(id)
+);
+
+create table educational_exp (
+    id bigint not null AUTO_INCREMENT,
+    education_name varchar(255) not null,
+    organization_name varchar(255) not null,
+    from_date timestamp,
+    to_date timestamp,
+    to_now boolean not null,
+    resume_id bigint not null,
+    constraint pk_edu_exp primary key(id),
+    constraint fk_edu_exp_to_resume foreign key(resume_id) references resumes(id)
+);
+
+create table licenses (
+    id bigint not null AUTO_INCREMENT,
+    license_name varchar(255) not null,
+    organization_name varchar(255) not null,
+    issued_date timestamp not null,
+    resume_id bigint not null,
+    constraint pk_licenses primary key(id),
+    constraint fk_license_to_resume foreign key(resume_id) references resumes(id)
+);
+
+create table awards (
+    id bigint not null AUTO_INCREMENT,
+    award_name varchar(255) not null,
+    competition_name varchar(255) not null,
+    organization_name varchar(255) not null,
+    award_date timestamp not null,
+    resume_id bigint not null,
+    constraint pk_awards primary key(id),
+    constraint fk_award_to_resume foreign key(resume_id) references resumes(id)
+);
+
+create table academic_activities (
+    id bigint not null AUTO_INCREMENT,
+    activity_name varchar(255) not null,
+    institution_name varchar(255) not null,
+    conference_name varchar(255) not null,
+    resume_id bigint not null,
+    constraint pk_academic_activities primary key(id),
+    constraint fk_academic_activity_to_resume foreign key(resume_id) references resumes(id)
+);
+
+create table work_exp(
+    id bigint not null AUTO_INCREMENT,
+    company_name varchar(255) not null,
+    job_title varchar(255) not null,
+    from_date timestamp,
+    to_date timestamp,
+    to_now boolean not null,
+    responsibility varchar(2047),
+    resume_id bigint not null,
+    constraint pk_work_exp primary key(id),
+    constraint fk_work_exp_to_resume foreign key(resume_id) references resumes(id)
+);
+
+create table projects (
+    id bigint not null AUTO_INCREMENT,
+    title varchar(500),
+    short_comment varchar(1500),
+    summary varchar(2500),
+    owner varchar(255) not null,
+    from_date timestamp,
+    to_date timestamp,
+    resume_id bigint,
+    rep_img bigint,
+    created_at timestamp,
+    updated_at timestamp,
+    constraint pk_projects primary key(id),
+    constraint fk_project_to_resume foreign key(resume_id) references resumes(id)
+);
+
+create table project_photos (
+    id bigint not null AUTO_INCREMENT,
+    url varchar(500) not null,
+    project_id bigint not null,
+    constraint pk_project_photos primary key(id),
+    constraint fk_project_photos_to_project foreign key(project_id) references projects(id)
+);
+
+alter table projects add constraint fk_project_to_project_photos foreign key(rep_img) references project_photos(id);
+
+create table roles (
+    id bigint not null AUTO_INCREMENT,
+    role_title varchar(500) not null,
+    role_comment varchar(2500) not null,
+    project_id bigint not null,
+    constraint pk_roles primary key(id),
+    constraint fk_role_to_project foreign key(project_id) references projects(id)
+);
+
+create table troubleshooting (
+    id bigint not null AUTO_INCREMENT,
+    problem varchar(2047) not null,
+    solution varchar(2047) not null,
+    result varchar(2047) not null,
+    lesson varchar(2047),
+    project_id bigint not null,
+    constraint pk_troubleshooting primary key(id),
+    constraint fk_troubleshooting_to_project foreign key(project_id) references projects(id)
+);
+
+create table skill_book (
+    id bigint not null AUTO_INCREMENT,
+    skill_name varchar(255) unique not null,
+    img_url varchar(500) not null,
+    constraint pk_skill_book primary key(id)
+);
+
+create table skills(
+    project_id bigint not null,
+    skill_id bigint not null,
+    capability integer,
+    constraint pk_skills primary key(project_id, skill_id),
+    constraint fk_skill_to_project foreign key(project_id) references projects(id),
+    constraint fk_skill_to_skill_book foreign key(skill_id) references skill_book(id)
+);
+
+create table open_sources_and_libs(
+    project_id bigint not null,
+    source_name varchar(255) not null,
+    constraint pk_open_sources_and_libs primary key(project_id, source_name),
+    constraint fk_open_sources_and_libs_to_project foreign key(project_id) references projects(id)
+);
+
+create table repository_links (
+    project_id bigint not null,
+    url varchar(500) not null,
+    repo_type integer not null,
+    constraint pk_repository_links primary key(project_id, url),
+    constraint fk_repository_link_to_project foreign key(project_id) references projects(id)
+);
+
+show tables;
+
+
+-- 테이블 수정용 임시 DDL, DML
+alter table educations add column to_date timestamp;
+alter table educational_exp add column to_date timestamp;
+alter table projects add column to_date timestamp;
+alter table work_exp add column to_date timestamp;
+
+alter table educations add column from_date timestamp;
+alter table educational_exp add column from_date timestamp;
+alter table projects add column from_date timestamp;
+alter table work_exp add column from_date timestamp;
+
+select * from skill_book;
+
+select * from users;
+
+delete from educations;
+delete from resumes;
+delete from users;
+
+commit;
+
+alter table educations drop column mas_gpa;
+alter table educations add column max_gpa double not null;
+
+alter table academic_activities add column activity_date timestamp;
+
+alter table projects drop column short_commnet;
+alter table projects add column short_comment varchar(1500);

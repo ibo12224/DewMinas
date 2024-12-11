@@ -179,7 +179,7 @@
             <div class="subframe" style="display:none;">
               <div class="l_frame_1">
                   <p class="div-3"><span class="text-wrapper-4">자격증 명</span></p>
-                  <input class="text_area" name="licenses-name" placeholder="정보처리기사">
+                  <input class="text_area" name="licenses-licenseName" placeholder="정보처리기사">
               </div>
               <div class="l_frame_2">
                 <p class="div-3"><span class="text-wrapper-4">발행처</span></p>
@@ -187,7 +187,7 @@
               </div>
               <div class="date">
                 <p class="div-3"><span class="text-wrapper-4">취득일</span></p>
-                <input class="text_area" name="licenses-issuedData" placeholder="2024/20/10" type="date">
+                <input class="text_area" name="licenses-issuedAt" placeholder="2024/20/10" type="date">
               </div>
               <div class="image-wrapper"><img class="image-5" src="/img/image-27.png" /></div>
                 <!-- 서버로 부터 전달된 기존 항목 요소 -->
@@ -204,7 +204,7 @@
                   </div>
                   <div class="date">
                       <p class="div-3"><span class="text-wrapper-4">취득일</span></p>
-                      <input class="text_area" th:name="|licenses-issuedData|" th:value="${#temporals.format(license.issuedAt, 'yyyy-MM-dd')}" type="date">
+                      <input class="text_area" th:name="|licenses-issuedAt|" th:value="${#temporals.format(license.issuedAt, 'yyyy-MM-dd')}" type="date">
                   </div>
                   <div class="image-wrapper"><img class="image-5" src="/img/image-27.png" /></div>
               </div>
@@ -237,11 +237,11 @@
               </div>
               <div class="date">
                 <p class="div-3"><span class="text-wrapper-4">수상일</span></p>
-                <input class="text_area" name="awards-awardDate" placeholder="2024-04-04" type="date">
+                <input class="text_area" name="awards-awardedDate" placeholder="2024-04-04" type="date">
               </div>
             </div>
               <div class="subframe" th:each="award, iterStat : ${awards}">
-                  <input th:name="|awards-id|" style="display:none;" th:value="award.id"/>
+                  <input th:name="|awards-id|" style="display:none;" th:value="${award.id}"/>
                   <div class="image-wrapper"><img class="image-5" src="/img/image-27.png" /></div>
                   <div class="r_frame">
                       <p class="div-3"><span class="text-wrapper-4">수상명</span></p>
@@ -257,7 +257,7 @@
                   </div>
                   <div class="date">
                       <p class="div-3"><span class="text-wrapper-4">수상일</span></p>
-                      <input class="text_area" th:name="|awards-awardDate|" th:value="${#temporals.format(award.awardedDate,'yyyy-MM-dd')}" type="date">
+                      <input class="text_area" th:name="|awards-awardedDate|" th:value="${#temporals.format(award.awardedDate,'yyyy-MM-dd')}" type="date">
                   </div>
               </div>
           </div>
@@ -285,13 +285,13 @@
                   <input class="text_area" name="eduExps-organizationName" placeholder="부산시">
               </div>
               <div class="x_frame_1">
-                      <p class="div-3"><span class="text-wrapper-4">시작년월</span></p>
-                      <input class="text_area" name="eduExps-fromDate" placeholder="2024/6" type="month">
+                      <p class="div-3"><span class="text-wrapper-4">시작일</span></p>
+                      <input class="text_area" name="eduExps-fromDate" placeholder="2024-6-1" type="date">
                   
               </div>
               <div class="x_frame_1">
-                      <p class="div-3"><span class="text-wrapper-4">종료년월</span></p>
-                      <input class="text_area" name="eduExps-toDate" placeholder="2024/8" type="month">
+                      <p class="div-3"><span class="text-wrapper-4">종료일</span></p>
+                      <input class="text_area" name="eduExps-toDate" placeholder="2024-8-1" type="date">
               </div>
               <div class="e_frame">
                 <span class="e_checklist">현재 진행 중</span>
@@ -357,7 +357,7 @@
             </div>
               <div class="x_frame_1">
                       <p class="div-3"><span class="text-wrapper-4">제출일</span></p>
-                      <input class="text_area" name="academicActivities-activityDate" placeholder="2024/8/1" type="month">
+                      <input class="text_area" name="academicActivities-activityDate" placeholder="2024-8-1" type="date">
               </div>
           </div>
               <div class="subframe" th:each="acaAct, iterStat : ${academicActivities}">
@@ -392,7 +392,7 @@
 
 
 
-<div class="maincontainer" name="workExps" id="workExp_main_container">
+<div class="maincontainer" name="workExps" id="workExps_main_container">
     <div class="heading">
         <div class="heading-2">경력</div>
     </div>
@@ -414,21 +414,23 @@
             </div>
             
             <!-- 입사 및 퇴사 년월 -->
-            <div class="c_frame_1">
-                <div class="background-border-9">
-                    <p class="div-3"><span class="text-wrapper-4">입사년월</span></p>
-                    <input class="text_area" name="workExps-fromDate" placeholder="2024" type="month">
-                </div>
-                
-                <div class="background-border-10">
-                    <p class="div-3"><span class="text-wrapper-4">퇴사년월</span></p>
-                    <input class="text_area" name="workExps-toDate" placeholder="2044" type="month">
-                </div>
-            </div>
             <div class="c_frame_2">
                 <p class="div-3"><span class="text-wrapper-4">담당 업무</span></p>
-                <textarea class="text_area_1" name="workExps-responsibility" placeholder="내가 무엇을 담당했는지 설명해주세요"></textarea>
+                <input class="text_area_1" name="workExps-responsibility" placeholder="내가 무엇을 담당했는지 설명해주세요"></input>
             </div>
+            <div class="e_frame">
+                <span class="e_checklist">현재 진행 중</span>
+                <input class="e_check" type="checkbox"  name="workExps-toNow" value="1">
+            </div>
+            <div class="x_frame_1">
+                    <p class="div-3"><span class="text-wrapper-4">입사일</span></p>
+                    <input class="text_area" name="workExps-fromDate" placeholder="2024-01-01" type="date">
+            </div>
+            <div class="x_frame_1">
+                    <p class="div-3"><span class="text-wrapper-4">퇴사일</span></p>
+                    <input class="text_area" name="workExps-toDate" placeholder="2024-10-10" type="date">
+            </div>
+
         </div>
         <div class="subframe" th:each="wExp, iterStat : ${workExp}">
             <input th:name="|workExps-id|" style="display:none;" th:value="${wExp.id}"/>
@@ -447,21 +449,23 @@
                 <input class="text_area" th:name="|workExps-companyName|" th:value="${wExp.companyName}">
             </div>
 
-            <!-- 입사 및 퇴사 년월 -->
-            <div class="c_frame_1">
-                <div class="background-border-9">
-                    <p class="div-3"><span class="text-wrapper-4">입사년월</span></p>
-                    <input class="text_area" th:name="|workExps-fromDate|" th:value="${#temporals.format(wExp.fromDate, 'yyyy-MM-dd')}" type="date">
-                </div>
-
-                <div class="background-border-10">
-                    <p class="div-3"><span class="text-wrapper-4">퇴사년월</span></p>
-                    <input class="text_area" th:name="|workExps-toDate|" th:value="${#temporals.format(wExp.toDate, 'yyyy-MM-dd')}" type="date">
-                </div>
-            </div>
             <div class="c_frame_2">
                 <p class="div-3"><span class="text-wrapper-4">담당 업무</span></p>
                 <input class="text_area_1" th:name="|workExps-responsibility|" th:value="${wExp.responsibility}"></input>
+            </div>
+            <div class="e_frame">
+                <span class="e_checklist">현재 진행 중</span>
+                <input class="e_check" th:if="${wExp.toNow}" type="checkbox"  name="workExps-toNow" value="1" checked>
+                <input class="e_check" th:unless="${wExp.toNow}" type="checkbox"  name="workExps-toNow" value="1">
+            </div>
+
+            <div class="x_frame_1">
+                <p class="div-3"><span class="text-wrapper-4">입사일</span></p>
+                <input class="text_area" th:name="|workExps-fromDate|" th:value="${#temporals.format(wExp.fromDate, 'yyyy-MM-dd')}" type="date">
+            </div>
+            <div class="x_frame_1">
+                <p class="div-3"><span class="text-wrapper-4">퇴사일</span></p>
+                <input class="text_area" th:name="|workExps-toDate|" th:value="${#temporals.format(wExp.toDate, 'yyyy-MM-dd')}" type="date">
             </div>
         </div>
     </div>

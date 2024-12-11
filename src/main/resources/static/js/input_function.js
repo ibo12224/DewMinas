@@ -1,26 +1,15 @@
 // 전역에서 사용할 헬퍼 함수 및 상수
 const globalSections = ["educations", "licenses", "awards", "eduExps", "academicActivities", "workExps"];
 
-const StorageKeys = {
-    hidden: (sectionName) => `section-${sectionName}-hidden`,
-    activate: (sectionName) => `button-${sectionName}-activate`
-  };
-  
   ///////////////////////////////////////////////plusbutton
 document.addEventListener('DOMContentLoaded', function () {
     // Initialize sections based on saved field counts
     document.querySelectorAll('.plusbutton').forEach(button => {
         const section = button.getAttribute('data-section');
-        const savedFieldCount = getFieldCount(section);
-        
-        // Load the saved field sets when the page loads
-        for (let i = 0; i < savedFieldCount; i++) {
-            addFieldSet(section);
-        }
-  
+
         // Attach click event listener to each button
         button.addEventListener('click', (event) =>{
-          handleAddButtonClick(section)
+          addFieldSet(section);
           event.preventDefault();
         
         } );
@@ -28,22 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
   
 // Helper to get and set field count in localStorage
-function getFieldCount(section) {
-    return parseInt(localStorage.getItem(`fieldCount-${section}`)) || 0;
-}
-  
-function setFieldCount(section, count) {
-    localStorage.setItem(`fieldCount-${section}`, count);
-}
-  
-// Handle adding a new field set when the button is clicked
-function handleAddButtonClick(section) {
-  addFieldSet(section);
-  
-  // Update field count in localStorage
-  const currentCount = getFieldCount(section);
-  setFieldCount(section, currentCount + 1);
-}
+
   
   // Retrieve template and container elements for a section
   function getSectionElements(section) {
@@ -99,27 +73,15 @@ function handleAddButtonClick(section) {
     }
   });
   
-  // beforeunload 이벤트 핸들러
-  function beforeUnloadHandler(event) {
-    // 페이지가 닫히거나 다른 URL로 이동하기 직전에 실행될 코드
-    console.log("페이지 정보를 저장하셨습니까?");
-    event.preventDefault();
-    event.returnValue = ""; // 경고 메시지 표시 (일부 브라우저만 지원)
-    localStorage.clear(); // 페이지 닫힐 때 로컬 스토리지 초기화
-  }
-
-  document.addEventListener('click', function(event) {
+document.addEventListener('click', function(event) {
     const wrapper = event.target.closest('.image-wrapper');
     const container = wrapper.closest('.maincontainer');
     const section = container.getAttribute('name');
   
     if (wrapper && wrapper.parentElement) {
-      const fieldCountKey = `fieldCount-${section}`;
-      const currentCount = parseInt(localStorage.getItem(fieldCountKey)) || 0;
-      localStorage.setItem(fieldCountKey, currentCount - 1);
       wrapper.parentElement.remove();
     }
-  });
+ });
 
 
 // 입력 데이터를 모아 요청용 객체를 만들어주는 함수
@@ -152,8 +114,8 @@ function parseResumeData() {
                 let value = input.value;
 
                 if(tokens[1] === "toNow") {
-                    value = (value === "on") ? true : false;
-                } else if(tokens[1].indexOf('Date') >= 0) {
+                    value = input.checked;
+                } else if(tokens[1].indexOf('Date') >= 0 || tokens[1].indexOf('At') >= 0) {
                     value += 'T00:00:00.0000000';
                 } else if(value){
                     value = (!isNaN(Number(value))) ? Number(value) : value;

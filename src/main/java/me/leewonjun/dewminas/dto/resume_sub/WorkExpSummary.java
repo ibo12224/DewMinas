@@ -31,14 +31,7 @@ public class WorkExpSummary implements Specifiable {
         this.id = exp.getId();
         this.responsibility = exp.getResponsibility();
     }
-    public WorkExpSummary(String companyName, String jobTitle, LocalDateTime fromDate, LocalDateTime toDate, boolean toNow, String responsibility) {
-        this.companyName = companyName;
-        this.jobTitle = jobTitle;
-        this.fromDate = fromDate;
-        this.toDate = toDate;
-        this.toNow = toNow;
-        this.responsibility = responsibility;
-    }
+
     @Override
     public Updatable<WorkExpSummary> specify() {
         return WorkExp.builder()
