@@ -256,9 +256,7 @@ select * from work_exp;]]></console>
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="cd26b0c3-b5bc-4e3b-b01f-fed9686c2c5d" object-ref="consoles/Connection" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="cd26b0c3-b5bc-4e3b-b01f-fed9686c2c5d" />
