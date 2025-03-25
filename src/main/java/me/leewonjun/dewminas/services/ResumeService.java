@@ -104,7 +104,7 @@ public class ResumeService {
         Map<Long, E> existEntities = repository.findAllById(
                         list.stream().map(T::getId).toList())
                 .stream().collect(Collectors.toMap(E::getId, e -> e));
-        // 새로운 튜플이 추가되기 전에 해야함. (list에는 현재 id 없는 컬럼들이 있고, 이들이 후에 삭제되버리기 때문.)
+        // 새로운 튜플이 추가되기 전에 해야함. (list에는 현재 id 없는 컬럼들이 있고, 이들을 후에 삭제해버리기 때문.)
         Set<Long> allKeys = getAllIds.apply(repository, resume);
 
         for (T item : list) { // dirty checking이 아닌 update JPQL 사용을 고려할 것. 성능 문제.
