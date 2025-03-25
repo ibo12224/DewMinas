@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequiredArgsConstructor
-public class ProjectApiController implements IUserInfoExtractor{
+public class ProjectApiController //implements IUserInfoExtractor
+{
 
     @Autowired
     private final ProjectService projectService;
@@ -57,8 +58,8 @@ public class ProjectApiController implements IUserInfoExtractor{
         return ResponseEntity.ok().build();
     }
 
-    @Override
-    public long getResumeIdBySecurityContext() {
-        return resumeService.findResume(this.getUsernameBySecurityContext()).getId();
-    }
+//    @Override
+//    public long getResumeIdBySecurityContext() {
+//        return resumeService.findResume(this.getUsernameBySecurityContext()).getId();
+//    }
 }

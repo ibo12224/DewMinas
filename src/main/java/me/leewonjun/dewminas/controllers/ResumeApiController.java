@@ -10,14 +10,15 @@ import me.leewonjun.dewminas.services.ResumeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
+//import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Objects;
 
 @RequiredArgsConstructor
 @RestController
-public class ResumeApiController implements IUserInfoExtractor{
+public class ResumeApiController //implements IUserInfoExtractor
+{
 
     @Autowired
     private final ResumeService resumeService;
