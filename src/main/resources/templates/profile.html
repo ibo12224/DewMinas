@@ -52,7 +52,7 @@
                         <label  class="portfolio-text-1" name="desiredPosition" th:text="${resume.desiredPosition}"></label>
                         <label class="portfolio-text-2"  th:text="|created at : ${#temporals.format(resume.createdAt, 'yyyy-MM-dd')}|"></label>
                         <label class="portfolio-text-2" th:text="|last update : ${#temporals.format(resume.updatedAt, 'yyyy-MM-dd')}|"></label>
-                        <button class="fix-button" id="resumeUpdateButton">수정</button>
+                        <a class="fix-button" th:href="@{/resume-update(email=${email})}">수정</a>
                         <button class="delete-button" id="resumeDeleteButton">삭제</button>
                     </div>
                     <button th:if="${resume} == null" class="plus-button" id="resumeAddButton" style="border:none;">

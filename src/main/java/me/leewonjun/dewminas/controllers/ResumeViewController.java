@@ -37,6 +37,7 @@ public class ResumeViewController // implements
             Resume resume = resumeService.findResume(email);
             resumeSummary = new ResumeSummary(resume.getId(), resume.getDesiredPosition(), resume.getCreatedAt(), resume.getUpdatedAt());
         } catch (IllegalArgumentException e) {
+            e.printStackTrace();
         }
         model.addAttribute("email", owner.getEmail());
         model.addAttribute("nameKor", owner.getNameKor());

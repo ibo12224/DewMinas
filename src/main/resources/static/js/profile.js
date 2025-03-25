@@ -5,7 +5,7 @@ let callbackToUpdate = (ev)=> {
     ev.stopPropagation();
 
     alert('이력서를 등록합니다.');
-    fetch("/api/resume", {
+    fetch(`/api/resume?email=${ownerEmail}`, {
         method: 'POST',
         headers: {
             "Content-Type" : "application/json"
@@ -20,23 +20,23 @@ if(resumeAddButton != null) {
     resumeAddButton.addEventListener("click", callbackToUpdate);
 }
 
-if(document.getElementById("resumeBox")) {
-    document.getElementById("resumeBox").addEventListener("click", (ev) => {
-        location = `/resume`;
-    });
-    resumeUpdateButton.addEventListener("click", (ev) => {
-        ev.stopPropagation();
-        alert("이력서를 수정합니다.");
-        location=`/resume-update`;
-    });
-    document.getElementById("resumeDeleteButton").addEventListener("click", (ev) => {
-        ev.stopPropagation();
-        const userResponse = confirm('정말로 이력서를 삭제하시겠습니까?');
-        if(!userResponse) return;
-        fetch(`/api/resume`, {
-            method :'DELETE'
-        }).then((ev) => {
-            location = `/profile`;
-        });
-    });
-}
+//if(document.getElementById("resumeBox")) {
+//    document.getElementById("resumeBox").addEventListener("click", (ev) => {
+//        location = `/resume`;
+//    });
+//    resumeUpdateButton.addEventListener("click", (ev) => {
+//        ev.stopPropagation();
+//        alert("이력서를 수정합니다.");
+//        location=`/resume-update?email=${ownerEmail}`;
+//    });
+//    document.getElementById("resumeDeleteButton").addEventListener("click", (ev) => {
+//        ev.stopPropagation();
+//        const userResponse = confirm('정말로 이력서를 삭제하시겠습니까?');
+//        if(!userResponse) return;
+//        fetch(`/api/resume?email=${ownerEmail}`, {
+//            method :'DELETE'
+//        }).then((ev) => {
+//            location = `/profile?email=${ownerEmail}`;
+//        });
+//    });
+//}

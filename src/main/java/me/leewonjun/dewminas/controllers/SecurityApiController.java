@@ -23,7 +23,7 @@ public class SecurityApiController {
     @PostMapping("/user")
     public String signup(@RequestBody SignUpRequest request) {
         this.userService.save(request);
-        return "redirect:/login";
+        return "login";
     }
 
     @GetMapping("/logout")

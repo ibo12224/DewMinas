@@ -121,6 +121,7 @@ line-height: var(--profile-text-size); /* 325% */
 
 }
 .fix-button{
+text-decoration:none;
     display: flex;
 width: 80px;
 height: 50px;
@@ -135,6 +136,15 @@ background: #B3A8EF;
 border:0px;
 font-size: var(--profile-button-size);
 }
+
+.fix-button:active {
+ color:black;
+}
+
+.fix-button:visited {
+    color: black;
+}
+
 .delete-button{
     display: flex;
 width: 80px;
