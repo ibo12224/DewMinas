@@ -24,8 +24,7 @@ public class ResumeApiController //implements IUserInfoExtractor
     private final ResumeService resumeService;
 
     @GetMapping("/api/resume")
-    public ResponseEntity<ResumeResponse> findResume() {
-        String email = this.getUsernameBySecurityContext();
+    public ResponseEntity<ResumeResponse> findResume(@RequestParam String email) {
         Resume resume = resumeService.findResume(email);
         // Null pointer Exception 발생
         Objects.requireNonNull(resume, ()->"No such resume +"+email);
@@ -42,11 +41,10 @@ public class ResumeApiController //implements IUserInfoExtractor
     }
 
     @PutMapping("/api/resume")
-    public ResponseEntity<ResumeResponse> updateResume(@RequestBody UpdateResumeRequest request) {
+    public ResponseEntity<ResumeResponse> updateResume(@RequestParam long id, @RequestBody UpdateResumeRequest request) {
         for(int i = 0; i < 100; i++) {
             System.out.println(request.getWorkExps().get(0).getResponsibility());
         }
-        long id = resumeService.findResume(this.getUsernameBySecurityContext()).getId();
         resumeService.updateResumeBeforeFlush(id, request);
         String ownerEmail = resumeService.getOwnerEmailById(id);
         ResumeResponse response = new ResumeResponse(resumeService.findResume(ownerEmail));
@@ -54,8 +52,7 @@ public class ResumeApiController //implements IUserInfoExtractor
     }
 
     @DeleteMapping("/api/resume")
-    public ResponseEntity<Object> deleteResume() {
-        String email = this.getUsernameBySecurityContext();
+    public ResponseEntity<Object> deleteResume(@RequestParam String email) {
         resumeService.deleteResume(email);
         return ResponseEntity.status(HttpStatus.OK).build();
     }

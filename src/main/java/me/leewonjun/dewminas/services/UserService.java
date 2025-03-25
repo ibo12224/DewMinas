@@ -5,7 +5,7 @@ import me.leewonjun.dewminas.domains.User;
 import me.leewonjun.dewminas.dto.SignUpRequest;
 import me.leewonjun.dewminas.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,8 +14,8 @@ public class UserService {
     @Autowired
     private final UserRepository userRepository;
 
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+//    @Autowired
+//    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public User findUser(String email) {
         return userRepository
@@ -29,7 +29,7 @@ public class UserService {
         User newUser = User.builder()
                 .nameKor(request.getNameKor())
                 .nameEng(request.getNameEng())
-                .password(bCryptPasswordEncoder.encode(request.getPassword()))
+                .password(request.getPassword())
                 .email(request.getEmail())
                 .phoneNumber(request.getPhoneNumber())
                 .nickname(request.getNickname())

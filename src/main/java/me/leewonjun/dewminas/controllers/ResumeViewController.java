@@ -10,7 +10,7 @@ import me.leewonjun.dewminas.dto.resume_sub.*;
 import me.leewonjun.dewminas.services.ResumeService;
 import me.leewonjun.dewminas.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
+//import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,15 +22,15 @@ import java.util.List;
 @Getter
 @Setter
 @RequiredArgsConstructor
-public class ResumeViewController implements IUserInfoExtractor{
+public class ResumeViewController // implements
+{
     @Autowired
     private final UserService userService;
     @Autowired
     private final ResumeService resumeService;
 
     @GetMapping("/profile")
-    public String getProfile(Model model) {
-        String email = this.getUsernameBySecurityContext();
+    public String getProfile(Model model, @RequestParam String email) {
         User owner = userService.findUser(email);
         ResumeSummary resumeSummary = null;
         try{
@@ -48,16 +48,14 @@ public class ResumeViewController implements IUserInfoExtractor{
     }
 
     @GetMapping("/resume-update")
-    public String updateResume(Model model) {
-        String email = this.getUsernameBySecurityContext();
+    public String updateResume(Model model, @RequestParam String email) {
         Resume resume = resumeService.findResume(email);
         appendResumeSections(model, resume);
         return "resume-update";
     }
 
     @GetMapping("/resume")
-    public String showResume(Model model) {
-        String email = this.getUsernameBySecurityContext();
+    public String showResume(Model model, @RequestParam String email) {
         User user = userService.findUser(email);
         Resume resume = resumeService.findResume(email);
         String phoneNumber = user.getPhoneNumber();
