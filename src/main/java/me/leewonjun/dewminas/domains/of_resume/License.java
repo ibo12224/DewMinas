@@ -1,10 +1,7 @@
 package me.leewonjun.dewminas.domains.of_resume;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import me.leewonjun.dewminas.domains.Updatable;
 import me.leewonjun.dewminas.dto.resume_sub.LicenseSummary;
 
@@ -38,6 +35,13 @@ public class License implements Updatable<LicenseSummary> {
         this.licenseName = licenseName;
         this.organizationName = organizationName;
         this.issuedAt = issuedAt;
+    }
+
+    public License(String licenseName, String organizationName, LocalDateTime issuedAt, Resume resume) {
+        this.licenseName = licenseName;
+        this.organizationName = organizationName;
+        this.issuedAt = issuedAt;
+        this.resume = resume;
     }
 
     @Override

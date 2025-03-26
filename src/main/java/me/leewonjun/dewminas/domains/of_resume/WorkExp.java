@@ -44,6 +44,16 @@ public class WorkExp extends CommonDateField implements Updatable<WorkExpSummary
         this.responsibility = responsibility;
     }
 
+    public WorkExp(String companyName, String jobTitle, LocalDateTime fromDate, LocalDateTime toDate, Boolean toNow, String responsibility, Resume resume) {
+        this.companyName = companyName;
+        this.jobTitle = jobTitle;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
+        this.toNow = toNow;
+        this.responsibility = responsibility;
+        this.resume = resume;
+    }
+
     @Override
     public boolean updateData(WorkExpSummary summary) {
         boolean res = false;

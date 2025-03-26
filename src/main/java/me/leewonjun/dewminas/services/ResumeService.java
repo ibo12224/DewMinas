@@ -6,10 +6,12 @@ import me.leewonjun.dewminas.domains.*;
 import me.leewonjun.dewminas.domains.of_resume.*;
 import me.leewonjun.dewminas.dto.client_dto.RegisterResumeRequest;
 import me.leewonjun.dewminas.dto.client_dto.UpdateResumeRequest;
+import me.leewonjun.dewminas.dto.resume_sub.AcademicActivitySummary;
 import me.leewonjun.dewminas.dto.resume_sub.Specifiable;
 import me.leewonjun.dewminas.repositories.*;
 import me.leewonjun.dewminas.repositories.project_repo.ProjectRepository;
 import me.leewonjun.dewminas.repositories.resume_repo.*;
+import org.hibernate.jdbc.Work;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
@@ -68,8 +70,93 @@ public class ResumeService {
     }
 
     public void updateResumeBeforeFlush(Long id, UpdateResumeRequest request) {
-        this.updateResume(id, request);
+//        this.updateResume(id, request);
+        this.updateResumeInBrutalWay(id, request);
+
         resumeRepository.flush();
+    }
+
+    @Transactional
+    public void updateResumeInBrutalWay(Long id, UpdateResumeRequest request) {
+        Resume resume = resumeRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("no such resume id : " + id));
+        resume.setDesiredPosition(request.getDesiredPosition()); // Dirty checking
+
+        // clear all table records
+        academicActivityRepository.deleteAllByResume(resume);
+        awardRepository.deleteAllByResume(resume);
+        educationRepository.deleteAllByResume(resume);
+        educationalExpRepository.deleteAllByResume(resume);
+        licenseRepository.deleteAllByResume(resume);
+        workExpRepository.deleteAllByResume(resume);
+
+        academicActivityRepository.saveAll(request.getAcademicActivities().stream().map(i -> {
+            AcademicActivity ent = (AcademicActivity)i.specify();
+            ent.setResume(resume);
+            return ent;
+        }).toList());
+        awardRepository.saveAll(request.getAwards().stream().map(i -> {
+            Award ent = (Award)i.specify();
+            ent.setResume(resume);
+            return ent;
+        }).toList());
+        educationRepository.saveAll(request.getEducations().stream().map(i -> {
+            Education ent = (Education)i.specify();
+            ent.setResume(resume);
+            return ent;
+        }).toList());
+        educationalExpRepository.saveAll(request.getEduExps().stream().map(i -> {
+            EducationalExp ent = (EducationalExp) i.specify();
+            ent.setResume(resume);
+            return ent;
+        }).toList());
+        licenseRepository.saveAll(request.getLicenses().stream().map(i -> {
+            License ent = (License) i.specify();
+            ent.setResume(resume);
+            return ent;
+        }).toList());
+        workExpRepository.saveAll(request.getWorkExps().stream().map(i -> {
+            WorkExp ent = (WorkExp)i.specify();
+            ent.setResume(resume);
+            return ent;
+        }).toList());
+
+
+        // insert all infos into each tables
+//        request.getAcademicActivities().forEach((summary) -> {
+//            AcademicActivity ent = (AcademicActivity)summary.specify();
+//            ent.setResume(resume);
+//            academicActivityRepository.save(ent);
+//        });
+
+//        request.getAwards().forEach((summary) -> {
+//            Award ent = (Award)summary.specify();
+//            ent.setResume(resume);
+//            awardRepository.save(ent);
+//        });
+
+//        request.getEducations().forEach((summary) -> {
+//            Education ent = (Education)summary.specify();
+//            ent.setResume(resume);
+//            educationRepository.save(ent);
+//        });
+//
+//        request.getEduExps().forEach((summary) -> {
+//            EducationalExp ent = (EducationalExp)summary.specify();
+//            ent.setResume(resume);
+//            educationalExpRepository.save(ent);
+//        });
+//
+//        request.getLicenses().forEach((summary) -> {
+//            License ent = (License)summary.specify();
+//            ent.setResume(resume);
+//            licenseRepository.save(ent);
+//        });
+//
+//        request.getWorkExps().forEach((summary) -> {
+//            WorkExp ent = (WorkExp)summary.specify();
+//            ent.setResume(resume);
+//            workExpRepository.save(ent);
+//        });
     }
 
     @Transactional
@@ -90,6 +177,7 @@ public class ResumeService {
                 (repo, oresume) -> ((LicenseRepository)repo).findByResume(resume).stream().map(License::getId).collect(Collectors.toSet()));
         updateOrSave(resume, request.getWorkExps(), workExpRepository,
                 (repo, oresume) -> ((WorkExpRepository)repo).findByResume(oresume).stream().map(WorkExp::getId).collect(Collectors.toSet()));
+
     }
 
     // 갱신 또는 삽입을 결정 하는 메소드

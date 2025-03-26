@@ -62,6 +62,7 @@ public class Education extends CommonDateField implements Updatable<EducationSum
         this.fromDate = fromDate;
         this.toDate = toDate;
         this.toNow = toNow;
+        this.resume = resume;
     }
 
     @Override

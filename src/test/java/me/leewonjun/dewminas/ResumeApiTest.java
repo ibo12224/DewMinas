@@ -27,10 +27,11 @@ import org.springframework.web.context.WebApplicationContext;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /*
 이력서 CURD 테스트용 클래스
@@ -44,6 +45,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @Rollback
 public class ResumeApiTest {
     public final String src = "/api/resume";
+
     @Autowired
     private MockMvc mockMvc;
 
@@ -376,5 +378,83 @@ public class ResumeApiTest {
         Assertions.assertThat(licenseRepository.count()).isZero();
         Assertions.assertThat(workExpRepository.count()).isZero();
         Assertions.assertThat(userRepository.findById(owner.getId()).orElse(null)).isNotNull();
+    }
+
+    @DisplayName("수정 성능 테스트 : brutal way")
+    @Test
+    @Transactional
+    @Rollback
+    public void loadTest() throws Exception {
+        // 테스트 데이터 준비
+        User owner = newUser;
+        String url = src;
+        Resume resume = resumeRepository.save(Resume.builder().owner(owner).build());
+
+        // 각 엔티티별 데이터 삽입
+        for(int i = 0; i < 1000; i++){
+            // 정보 입력 스코프
+            educationRepository.save(new Education(0, "동의대학교", "컴퓨터공학과", "학사", 4.49, 4, 4.5,
+                    LocalDateTime.of(2014, java.time.Month.of(3), 2, 0, 0, 0),
+                    LocalDateTime.of(2024, java.time.Month.of(3), 14, 0, 0, 0), true, resume));
+            licenseRepository.save(new License("정보처리기사", "산업인력공단",
+                    LocalDateTime.of(2024, java.time.Month.of(6), 11, 0, 0, 0), resume));
+            awardRepository.save(new Award("우수상", "캡스톤디자인 경진대회", "동의대 LINC+사업단",
+                    LocalDateTime.of(2024, java.time.Month.of(8), 20, 0, 0, 0), resume));
+            educationalExpRepository.save(new EducationalExp("SSAFY", "고용노동부",
+                    LocalDateTime.of(2025, java.time.Month.of(1), 1, 0, 0, 0)
+                    ,LocalDateTime.of(2024, java.time.Month.of(12), 31, 0, 0, 0), true, resume));
+            academicActivityRepository.save(new AcademicActivity("횡단보도 사각 보조 시스템 논문발표", "한국정보기술학회", "추계종합학술대회",
+                    LocalDateTime.of(2024, java.time.Month.of(11), 22, 13, 32, 0), resume));
+            workExpRepository.save(new WorkExp("네이버", "개발팀장",
+                    LocalDateTime.of(2025,java.time.Month.of(3), 1, 0 ,0 ,0),
+                    LocalDateTime.of(2025, java.time.Month.of(12), 3, 0, 0, 0), true, "CTO", resume));
+        }
+
+        // 타겟 테이터 로드
+        List<EducationSummary> eduDummies = educationRepository.findAll().stream().map(EducationSummary::new).toList();
+        List<EducationalExpSummary> eduExpDummies = educationalExpRepository.findAll().stream().map(EducationalExpSummary::new).toList();
+        List<AwardSummary> awardDummies = awardRepository.findAll().stream().map(AwardSummary::new).toList();
+        List<AcademicActivitySummary> acaExpDummies = academicActivityRepository.findAll().stream().map(AcademicActivitySummary::new).toList();
+        List<LicenseSummary> licenseDummies = licenseRepository.findAll().stream().map(LicenseSummary::new).toList();
+        List<WorkExpSummary> workExpDummies = workExpRepository.findAll().stream().map(WorkExpSummary::new).toList();
+
+        // 테스트 시작 : 100만 회의 변경 서비스 호출
+        long start = System.currentTimeMillis();
+        StringBuilder originalTarget = new StringBuilder("test");
+
+        for(int i = 0; i < 100; i++) {
+//            long startT = System.currentTimeMillis();
+            UpdateResumeRequest request = new UpdateResumeRequest();
+            for(int k = 0; k < 100; k++) {
+                StringBuilder repTarget = new StringBuilder(originalTarget);
+                int idx = (int)(Math.random() * 1000);
+                eduDummies.get(idx).setInstitutionName(repTarget.append(i).toString());
+                eduExpDummies.get(idx).setEducationName(repTarget.append(i).toString());
+                awardDummies.get(idx).setAwardName(repTarget.append(i).toString());
+                acaExpDummies.get(idx).setInstitutionName(repTarget.append(i).toString());
+                licenseDummies.get(idx).setLicenseName(repTarget.append(i).toString());
+                workExpDummies.get(idx).setCompanyName(repTarget.append(i).toString());
+            }
+
+            request.setEducations(eduDummies); request.setEduExps(eduExpDummies);
+            request.setAwards(awardDummies); request.setAcademicActivities(acaExpDummies);
+            request.setLicenses(licenseDummies); request.setWorkExps(workExpDummies);
+
+            mockMvc.perform(put(url+"?id="+resume.getId())
+                    .contentType(MediaType.APPLICATION_JSON_VALUE)
+                    .content(objectMapper.writeValueAsString(request))
+                    .accept(MediaType.APPLICATION_JSON)
+            ).andExpect(status().isOk());
+//            System.out.println(System.currentTimeMillis() - startT);
+
+        }
+
+        // 테스트 종료
+        System.out.println("소요 시간 : " + (System.currentTimeMillis() - start));
+
+        // 개선 전 : (save) 13504
+        // 개선 전 : (saveAll) 14572, 100회 : 158729
+        // 개선 후 : 2582 (single thread), 100회 : 17590
+        // 개선 후 : 916 (multi thread), runtime error -> resume null ? 아마 락 때문인 것 같음..
     }
 }
