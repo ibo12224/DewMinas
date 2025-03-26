@@ -1,18 +1,18 @@
 let ownerEmail = document.getElementById("emailBox").value;
 let resumeAddButton = document.getElementById("resumeAddButton");
 let resumeUpdateButton = document.getElementById("resumeUpdateButton");
-let callbackToUpdate = (ev)=> {
+let callbackToUpdate = async (ev)=> {
     ev.stopPropagation();
 
     alert('이력서를 등록합니다.');
-    fetch(`/api/resume?email=${ownerEmail}`, {
+    await fetch(`/api/resume?email=${ownerEmail}`, {
         method: 'POST',
         headers: {
             "Content-Type" : "application/json"
         },
         body: JSON.stringify({ email: `${ownerEmail}`})
         }).then(() => {
-            location = `/resume-update`
+            location = `/resume-update?email=${ownerEmail}`
         }
     )
 };

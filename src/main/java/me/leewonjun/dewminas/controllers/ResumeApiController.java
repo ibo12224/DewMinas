@@ -42,9 +42,6 @@ public class ResumeApiController //implements IUserInfoExtractor
 
     @PutMapping("/api/resume")
     public ResponseEntity<ResumeResponse> updateResume(@RequestParam long id, @RequestBody UpdateResumeRequest request) {
-        for(int i = 0; i < 100; i++) {
-            System.out.println(request.getWorkExps().get(0).getResponsibility());
-        }
         resumeService.updateResumeBeforeFlush(id, request);
         String ownerEmail = resumeService.getOwnerEmailById(id);
         ResumeResponse response = new ResumeResponse(resumeService.findResume(ownerEmail));

@@ -17,6 +17,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -35,8 +37,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 
 
+@ContextConfiguration(classes = {DewminasApplication.class})
 @SpringBootTest
 @AutoConfigureMockMvc
+@Transactional
+@Rollback
 public class ResumeApiTest {
     public final String src = "/api/resume";
     @Autowired
@@ -72,6 +77,7 @@ public class ResumeApiTest {
     @Autowired
     private ObjectMapper objectMapper;
 
+    private User newUser = null;
 
     @BeforeEach
     public void mockSetUp() {
@@ -84,16 +90,18 @@ public class ResumeApiTest {
         workExpRepository.deleteAll();
         resumeRepository.deleteAll();
         userRepository.deleteAll();
+        userRepository.flush();
+        newUser = userRepository.save(User.builder().nameKor("이원준").nameEng("Lee WonJun").phoneNumber("01012341111").email("mail@gmail.com").nickname("tester").password("1234").build());
     }
 
     @DisplayName("postResume() : 이력서 등록에 성공한다.")
     @Test
     @Transactional
+    @Rollback
     public void postingTest() throws Exception{
         // given : 유저 데이터 저장, 이력서 정보 post
 
         String pnum = "01012341111";
-        User newUser = userRepository.save(User.builder().nameKor("이원준").nameEng("Lee WonJun").phoneNumber("01012341111").email("mail@gmail.com").nickname("tester").password("1234").build());
         String url = src;
         // 전송할 이력서 기본 정보
         RegisterResumeRequest request = new RegisterResumeRequest(newUser.getEmail());
@@ -117,12 +125,13 @@ public class ResumeApiTest {
 
     @DisplayName("findResume() : 이력서 조회에 성공한다.")
     @Test
+    @Transactional
+    @Rollback
     public void findingTest() throws Exception{
         // given
         String pnum = "01012341111";
-        User newUser = userRepository.save(User.builder().nameKor("이원준").nameEng("Lee WonJun").phoneNumber(pnum).email("mail@gmail.com").nickname("tester").password("1234").build());
         Resume newResume = resumeRepository.save(Resume.builder().owner(newUser).build());
-        String url = src;
+        String url = src+"?email=mail@gmail.com";
 
         // when
         ResultActions actions = mockMvc.perform(get(url).accept(MediaType.APPLICATION_JSON));
@@ -137,12 +146,13 @@ public class ResumeApiTest {
     @DisplayName("updateResume() #1 : 이력서 정보 추가에 성공한다.")
     @Test
     @Transactional
+    @Rollback
     public void appendInformation() throws Exception {
         // given : 유저 생성, 이력서 생성, 추가할 정보 생성
         String url = src;
 
         String pnum = "01034422631";
-        User owner = userRepository.save(User.builder().nameEng("Lee").phoneNumber(pnum).nameKor("이원준").nickname("tester").password("123").email("mail@gmail.com").build());
+        User owner = newUser;
         Resume resume = resumeRepository.save(Resume.builder().owner(owner).build());
         List<EducationSummary> eduSums = new ArrayList<>();
         List<LicenseSummary> licenseSums = new ArrayList<>();
@@ -172,7 +182,7 @@ public class ResumeApiTest {
 
         UpdateResumeRequest request = new UpdateResumeRequest(desiredPos, eduSums, licenseSums, awardSums, acaSums, eduExpSums, workSums);
         // when
-        mockMvc.perform(put(url)
+        mockMvc.perform(put(url+"?id="+resume.getId())
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .content(objectMapper.writeValueAsString(request))
                 .accept(MediaType.APPLICATION_JSON)
@@ -236,12 +246,13 @@ public class ResumeApiTest {
     @DisplayName("updateResume() #2 : 이력서 정보 수정에 성공한다.")
     @Test
     @Transactional
+    @Rollback
     public void updateInformation() throws Exception {
         // given : 유저 생성, 이력서 생성, 추가할 정보 생성
         String url = src;
 
         String pnum = "01034422631";
-        User owner = userRepository.save(User.builder().nameEng("Lee").phoneNumber(pnum).nameKor("이원준").nickname("tester").password("123").email("mail@gmail.com").build());
+        User owner = newUser;
         Resume resume = resumeRepository.save(Resume.builder().owner(owner).build());
         List<EducationSummary> eduSums = new ArrayList<>();
         List<LicenseSummary> licenseSums = new ArrayList<>();
@@ -271,7 +282,7 @@ public class ResumeApiTest {
 
         UpdateResumeRequest request = new UpdateResumeRequest(desiredPos, eduSums, licenseSums, awardSums, acaSums, eduExpSums, workSums);
         // when
-        mockMvc.perform(put(url)
+        mockMvc.perform(put(url+"?id="+resume.getId())
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .content(objectMapper.writeValueAsString(request))
                 .accept(MediaType.APPLICATION_JSON)
@@ -292,7 +303,7 @@ public class ResumeApiTest {
         request.getEduExps().get(0).setId(1L);
         request.getWorkExps().get(0).setId(1L);
 
-        mockMvc.perform(put(url, resume.getId())
+        mockMvc.perform(put(url+"?id="+resume.getId())
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .content(objectMapper.writeValueAsString(request))
                 .accept(MediaType.APPLICATION_JSON)
@@ -310,10 +321,12 @@ public class ResumeApiTest {
 
     @DisplayName("deleteResume() : 이력서 및 세부 정보 삭제에 성공한다.")
     @Test
+    @Transactional
+    @Rollback
     public void deleteResumeTest()  throws Exception{
         // given : 유저 생성, 이력서 생성, 추가할 정보 생성
         String pnum = "01034422631";
-        User owner = userRepository.save(User.builder().nameEng("Lee").phoneNumber(pnum).nameKor("이원준").nickname("tester").password("123").email("mail@gmail.com").build());
+        User owner = newUser;
 
         String url = src;
 
