@@ -40,17 +40,17 @@
 # git commit -m "새롭게 변경된 작업 내용 설명"
 # git push origin 새로운브랜치이름
 ```
-***_origin임을 주의할 것. 환경설정 절차에서 git remote로 추가한 리포지토리가 아니다!_❌***
-5. fork했던 github 페이지를 브라우저로 연다.
-6. 활성화 되어 있는 pull request 버튼을 클릭한다.
-7. 만약 conflics가 있다는 경고가 생기면, 해당 파일 내용들을 수정하여 conflic가 생기지 않도록 수정한 뒤 다시 시도한다.
-8. 원본 저장소 소유자가 pull request를 승인하고 merge한다.
-9. merge 됐다는 응답을 받으면, branch를 삭제한다.
+***origin임을 주의할 것. 환경설정 절차에서 git remote로 추가한 리포지토리가 아니다!❌***  
+5. fork했던 github 페이지를 브라우저로 연다.  
+6. 활성화 되어 있는 pull request 버튼을 클릭한다.  
+7. 만약 conflics가 있다는 경고가 생기면, 해당 파일 내용들을 수정하여 conflic가 생기지 않도록 수정한 뒤 다시 시도한다.  
+8. 원본 저장소 소유자가 pull request를 승인하고 merge한다.  
+9. merge 됐다는 응답을 받으면, branch를 삭제한다.  
 ```
 # git checkout 디폴트브랜치이름
 # git branch -D 만들었던브랜치이름
 ```
-10. 원본 리포지토리를 pull 한다.
+10. 원본 리포지토리를 pull 한다.  
 ```
 # git pull 원본리포지토리별명 현재브랜치이름
 ```
