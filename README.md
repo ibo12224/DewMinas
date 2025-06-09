@@ -11,6 +11,12 @@ client : js(vanilla), html, css
 ## 백엔드 애플리케이션 구조
 ![image](https://github.com/user-attachments/assets/ddaf8030-15ce-4f53-bca4-17a5f44e239c)
 
+## 발생했던 문제.
+이력서 수정 API의 수행성능이 매우 느렸음.
+SQL 실행 로그를 살펴본 결과 : delete 대상들을 하나하나 Select하는 방식으로 Data jpa가 실행되고 있었음. delete의 rollback을 위한 백업 과정이 오버헤드를 발생시켰다.
+
+채택한 해결 방안 : 꼭 필요한 순간이 아니라면 DB 접근이 없도록 하자. select 만으로 접근하여 동기화로 인한 지연을 최소화하자.
+
 
 ## 데이터 수정 여부 확인(Contrastable), 엔티티 수정 연산 추상화(Updatable), DTO와 DAO 변환 추상화(Specifiable)
 ![image](https://github.com/user-attachments/assets/6cda7c49-128c-4a23-ac55-f68551d50682)
