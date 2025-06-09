@@ -34,5 +34,5 @@ client : js(vanilla), html, css
 
 ![image](https://github.com/user-attachments/assets/017c2799-6319-4109-a723-018d412ce049)
 
-테스트 결과.  
+테스트 결과. (https://velog.io/@cosmos334/SpringBoot-%EC%9D%B4%EB%A0%A5%EC%84%9C-%EC%88%98%EC%A0%95-API-%EA%B0%9C%EC%84%A0-%ED%85%8C%EC%8A%A4%ED%8A%B8)
 ![image](https://github.com/user-attachments/assets/72581266-3479-410a-92d6-eda424814daa)
