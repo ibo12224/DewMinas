@@ -26,3 +26,13 @@ client : js(vanilla), html, css
 ![image](https://github.com/user-attachments/assets/d1b589c6-b404-42b5-b659-0eb8392a2733)
 
 ### 부하 테스트
+테스트 시나리오.
+1. 엔티티 종류별로 1000건의 데이터 삽입
+2. 삽입된 모든 데이터를 읽어옴.
+3. 랜덤하게 100개 씩 데이터를 수정하고 총 100번 수정 API를 호출함.
+4. 총 소요시간을 a. 전체삭제, 다시 삽입 방식과 b. 기본키를 사용한 검토 방식으로 구분하여 수행함.
+
+![image](https://github.com/user-attachments/assets/017c2799-6319-4109-a723-018d412ce049)
+
+테스트 결과.
+![image](https://github.com/user-attachments/assets/72581266-3479-410a-92d6-eda424814daa)
