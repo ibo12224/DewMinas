@@ -14,3 +14,15 @@ client : js(vanilla), html, css
 
 ## 데이터 수정 여부 확인(Contrastable), 엔티티 수정 연산 추상화(Updatable), DTO와 DAO 변환 추상화(Specifiable)
 ![image](https://github.com/user-attachments/assets/6cda7c49-128c-4a23-ac55-f68551d50682)
+
+### 코드 구현.
+1. 요청으로 전송된 이력서 항목 인스턴스들이 PK 값을 가지고 있다면 변경 확인을 위해 DB에서 읽어옴.
+2. 위 과정에서 메서드 인자도 전달된 getAllIds를 사용해 JpaRepository를 구체적인 리포지토리 타입으로 캐스팅하고 기본키를 읽어올 수 있음.
+3. 각 엔티티들에 대해 필요한 연산을 확인.
+   3.1. 기본키가 있던 DTO라면 데이터 변경을 확인함.
+   3.2. 기본키가 없는 DTO라면 새로운 데이터이므로 삽입함.
+4. 위 과정을 거치고 남아있는 ID들은 제거 대상이므로 delete를 수행함.
+   
+![image](https://github.com/user-attachments/assets/d1b589c6-b404-42b5-b659-0eb8392a2733)
+
+### 부하 테스트
