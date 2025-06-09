@@ -10,3 +10,6 @@ client : js(vanilla), html, css
 
 ## 백엔드 애플리케이션 구조
 ![image](https://github.com/user-attachments/assets/ddaf8030-15ce-4f53-bca4-17a5f44e239c)
+
+
+## 데이터 수정 여부 확인(Contrastable), 테이터 ㅅ
