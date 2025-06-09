@@ -12,4 +12,5 @@ client : js(vanilla), html, css
 ![image](https://github.com/user-attachments/assets/ddaf8030-15ce-4f53-bca4-17a5f44e239c)
 
 
-## 데이터 수정 여부 확인(Contrastable), 테이터 ㅅ
+## 데이터 수정 여부 확인(Contrastable), 엔티티 수정 연산 추상화(Updatable), DTO와 DAO 변환 추상화(Specifiable)
+![image](https://github.com/user-attachments/assets/6cda7c49-128c-4a23-ac55-f68551d50682)
